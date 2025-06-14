@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &83283741742102304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3680732630953674059}
+  m_Layer: 3
+  m_Name: ObjectGrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3680732630953674059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83283741742102304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2121271722630710037}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3786939349454671102
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +45,7 @@ GameObject:
   - component: {fileID: 5517523231397276712}
   - component: {fileID: 914742050820232339}
   - component: {fileID: 516499958207155125}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -33,7 +64,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3680732630953674059}
   m_Father: {fileID: 4784397698715732499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5827672097250245691
@@ -166,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactorSource: {fileID: 2121271722630710037}
-  interactRange: 4
+  interactRange: 2
 --- !u!1 &5785917789929004429
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +211,7 @@ GameObject:
   - component: {fileID: 6132989818036733477}
   - component: {fileID: 8422966068103543793}
   - component: {fileID: 3447744044926384321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +320,8 @@ GameObject:
   - component: {fileID: 4784397698715732499}
   - component: {fileID: 3135287151892380817}
   - component: {fileID: 6648589579663447466}
-  m_Layer: 0
+  - component: {fileID: 5533139265754579363}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,6 +387,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 6340289539854473648}
   moveSpeed: 5
+--- !u!114 &5533139265754579363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778138647144662402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8641716cf96bb1f4ebabd11ddd7efdfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2121271722630710037}
+  objectGrabPointTransform: {fileID: 3680732630953674059}
+  pickupLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  pickupDistance: 3
 --- !u!1 &8495402914767659982
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6340289539854473648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviour
 {
-    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private float defaultMouseSensitivity = 100f;
+    private float mouseSensitivity;
     [SerializeField] private Transform orientation;
     
     private float _xRotation;
@@ -17,6 +18,7 @@ public class PlayerCam : MonoBehaviour
     private void Awake()
     {
         _inputSystem = new InputSystem_Actions();
+        LoadSensitivity();
     }
     
     private void Start()
@@ -58,4 +60,14 @@ public class PlayerCam : MonoBehaviour
         _lookInput = context.ReadValue<Vector2>();
     }
     
+    public void UpdateSensitivity(float newSensitivity)
+    {
+        mouseSensitivity = newSensitivity;
+    }
+
+    // Load saved sensitivity or use default
+    private void LoadSensitivity()
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", defaultMouseSensitivity);
+    }
 }

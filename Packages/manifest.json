@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.simonskvara.skv_toolkit": "https://github.com/simonskvara/skv_toolkit.git",
     "com.unity.ai.navigation": "2.0.6",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.feature.2d": "2.0.1",

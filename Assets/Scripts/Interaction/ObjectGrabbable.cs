@@ -14,6 +14,7 @@ public class ObjectGrabbable : MonoBehaviour
     {
         objectRigidbody = GetComponent<Rigidbody>();
         objectRigidbody.excludeLayers = LayerMask.GetMask("Player");
+        objectRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     public void Grab(Transform objectGrabPointTransform)

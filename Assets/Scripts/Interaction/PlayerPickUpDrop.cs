@@ -36,7 +36,7 @@ public class PlayerPickUpDrop : MonoBehaviour
     
     private void PickUp()
     {
-        objectGrabbable.Grab(objectGrabPointTransform);
+        objectGrabbable.Grab(objectGrabPointTransform, playerCamera);
     }
 
     private void Drop()

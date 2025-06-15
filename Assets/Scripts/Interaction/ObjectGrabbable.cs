@@ -7,9 +7,12 @@ public class ObjectGrabbable : MonoBehaviour
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
     [SerializeField] private float lerpSpeed = 20f;
+    [SerializeField] private float rotationLerpSpeed = 15f;
     
     private bool isGrabbed;
     private Vector3 targetPosition;
+    
+    private Transform cameraTransform;
 
     private void Awake()
     {
@@ -26,9 +29,10 @@ public class ObjectGrabbable : MonoBehaviour
         }
     }
 
-    public void Grab(Transform objectGrabPointTransform)
+    public void Grab(Transform objectGrabPointTransform, Transform cameraTransform)
     {
         this.objectGrabPointTransform = objectGrabPointTransform;
+        this.cameraTransform = cameraTransform;
         objectRigidbody.useGravity = false;
         
         isGrabbed = true;
@@ -37,6 +41,7 @@ public class ObjectGrabbable : MonoBehaviour
     public void Drop()
     {
         this.objectGrabPointTransform = null;
+        this.cameraTransform = null;
         objectRigidbody.useGravity = true;
         
         isGrabbed = false;
@@ -68,6 +73,19 @@ public class ObjectGrabbable : MonoBehaviour
         float speed = Mathf.Min(lerpSpeed * distance, lerpSpeed);
         
         objectRigidbody.linearVelocity = direction * speed;
+        
+        if (cameraTransform != null)
+        {
+            Quaternion targetRotation = cameraTransform.rotation;
+            
+            Quaternion newRotation = Quaternion.Lerp(
+                objectRigidbody.rotation,
+                targetRotation,
+                Time.fixedDeltaTime * rotationLerpSpeed
+            );
+            
+            objectRigidbody.MoveRotation(newRotation);
+        }
         
         objectRigidbody.angularVelocity = Vector3.zero;
     }

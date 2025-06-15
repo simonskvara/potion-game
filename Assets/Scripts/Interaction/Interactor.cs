@@ -5,6 +5,8 @@ interface IInteractable
 {
     public void Interact();
     public string GetDescription();
+    public void EnableOutline();
+    public void DisableOutline();
 }
 
 /// <summary>
@@ -41,7 +43,7 @@ public class Interactor : MonoBehaviour
                     uiManager.UpdateInteractionDescription(interactObj.GetDescription());
                     currentInteractable = interactObj;
                 }
-                currentInteractable = interactObj;
+                interactObj.EnableOutline();
                 return;
             }
         }

@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class ObjectGrabbable : MonoBehaviour
 {
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
-    [SerializeField] private float lerpSpeed = 10f;
+    [SerializeField] private float lerpSpeed = 20f;
     
     private bool isGrabbed;
     private Vector3 targetPosition;
@@ -15,6 +16,14 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidbody = GetComponent<Rigidbody>();
         objectRigidbody.excludeLayers = LayerMask.GetMask("Player");
         objectRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+    }
+
+    private void Start()
+    {
+        if (gameObject.layer != LayerMask.NameToLayer("PickUpObject"))
+        {
+            Debug.LogWarning("Ingredient doesn't have the layer needed to work", gameObject);
+        }
     }
 
     public void Grab(Transform objectGrabPointTransform)

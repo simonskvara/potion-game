@@ -13,5 +13,23 @@ MonoBehaviour:
   m_Name: Recipes
   m_EditorClassIdentifier: 
   recipes:
-  - ingredients: 070000000700000007000000
+  - ingredients: 030000000100000005000000
+    resultEffect: 1
+  - ingredients: 060000000900000002000000
+    resultEffect: 2
+  - ingredients: 040000000800000000000000
     resultEffect: 3
+  - ingredients: 010000000a00000009000000
+    resultEffect: 4
+  - ingredients: 080000000700000000000000
+    resultEffect: 5
+  - ingredients: 020000000400000005000000
+    resultEffect: 6
+  - ingredients: 030000000100000005000000
+    resultEffect: 7
+  - ingredients: 030000000100000005000000
+    resultEffect: 8
+  - ingredients: 030000000100000005000000
+    resultEffect: 9
+  - ingredients: 030000000100000005000000
+    resultEffect: 10

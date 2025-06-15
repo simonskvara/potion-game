@@ -14,12 +14,12 @@ public class Potion : MonoBehaviour
     {
         if (other.CompareTag("TestSubject"))
         {
-            ApplyEffect(other.gameObject);
+            ApplyEffect(other.gameObject, other.GetComponent<TestSubject>());
             Destroy(gameObject);
         }
     }
     
-    private void ApplyEffect(GameObject target)
+    private void ApplyEffect(GameObject targetObj, TestSubject targetSubject)
     {
         switch (_effect)
         {
@@ -29,7 +29,8 @@ public class Potion : MonoBehaviour
             case PotionEffect.Combustion:
                 break;
                 
-            // Add other effects here
+            case PotionEffect.Zombification:
+                break;
                 
             default:
                 // No effect for failed potions

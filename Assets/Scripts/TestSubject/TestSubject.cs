@@ -6,6 +6,11 @@ public class TestSubject : MonoBehaviour, IInteractable
     
     public void Interact()
     {
+        PlayVoiceLine();
+    }
+
+    private void PlayVoiceLine()
+    {
         
     }
 

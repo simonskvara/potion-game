@@ -14,6 +14,8 @@ public class ObjectGrabbable : MonoBehaviour
     
     private Transform cameraTransform;
 
+    private bool canGrab = true;
+
     private void Awake()
     {
         objectRigidbody = GetComponent<Rigidbody>();
@@ -29,8 +31,12 @@ public class ObjectGrabbable : MonoBehaviour
         }
     }
 
+    public void DisableGrabbing() { canGrab = false;}
+    
     public void Grab(Transform objectGrabPointTransform, Transform cameraTransform)
     {
+        if(!canGrab) return;
+        
         this.objectGrabPointTransform = objectGrabPointTransform;
         this.cameraTransform = cameraTransform;
         objectRigidbody.useGravity = false;

@@ -20,5 +20,6 @@ public enum PotionEffect
     None,
     Goblinization,
     Combustion,
+    Zombification,
     
 }

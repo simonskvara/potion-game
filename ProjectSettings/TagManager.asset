@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PreviewCamera
   - Cauldron
+  - TestSubject
   layers:
   - Default
   - TransparentFX

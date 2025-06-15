@@ -43,7 +43,6 @@ public class Interactor : MonoBehaviour
                     uiManager.UpdateInteractionDescription(interactObj.GetDescription());
                     currentInteractable = interactObj;
                 }
-                currentInteractable = interactObj;
                 interactObj.EnableOutline();
                 return;
             }

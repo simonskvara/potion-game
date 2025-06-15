@@ -741,9 +741,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factText: {fileID: 936811663}
   facts:
-  - Witches were burned
-  - Every witch cackles
-  - Wiiiiiiiitch!
+  - In medieval Europe, "witches" were often just women who knew too much about herbs.
+  - "The infamous Witch Trials once used a \"swimming test\": if you floated, you
+    were a witch. If you sank\u2026 sorry."
+  - "The word \"witch\" comes from the Old English wicce, meaning \u201Cwise woman.\u201D"
+  - "Broomsticks became associated with witches thanks to old folk rituals involving\u2026
+    flying ointments. (Don\u2019t ask.)"
+  - "In some legends, witches kept \"familiars\"\u2014spirit animals like cats, toads,
+    or suspiciously chatty crows."
+  - "Not all witches were feared\u2014many villages had a local witch people went
+    to for love spells or a cure for warts."
+  - "Salem wasn\u2019t the only place with witch hunts\u2014Germany, Scotland, and
+    France were way worse."
+  - "\u201CWitch bottles\u201D were buried under homes in old England to ward off
+    curses. Contents included nails, hair, and sometimes... urine."
+  - Modern witchcraft (Wicca) is recognized as a real religion in several countries.
+  - "In parts of Europe, accused witches were burned at the stake\u2014not for magic,
+    but for heresy. Harsh vibes."
+  - "During the witch hunts, \u201Cevidence\u201D included dreams, birthmarks, or
+    owning a black cat. Justice was\u2026 creative."
+  - "Confessing to witchcraft didn\u2019t save you. Denying it didn\u2019t help either.
+    Lose-lose."
+  - "Witches weren\u2019t always women\u2014plenty of men got accused too. Equality,
+    kind of?"
+  - "Some trials involved pricking the accused with needles to find a \u201Cwitch\u2019s
+    mark.\u201D If it didn\u2019t hurt, guilty."
+  - In Scotland, over 60% of accused witches were executed. At least they were thorough.
+  - You could be accused of witchcraft just for being disliked. Medieval drama was
+    brutal.
+  - "Witch hunters sometimes charged fees for their \u201Cservices.\u201D Business
+    was booming."
+  - "Being too old, too young, too pretty, too strange\u2014any of it could get you
+    burned... #StayAverage"
+  interval: 8
 --- !u!1 &446589338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1249,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1097292594}
+  - {fileID: 936811662}
   - {fileID: 527303305}
   m_Father: {fileID: 1902367583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1528,17 +1559,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936811661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1902367583}
+  m_Father: {fileID: 634898653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 50}
-  m_SizeDelta: {x: 700, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1800, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &936811663
 MonoBehaviour:
@@ -1587,14 +1618,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3903,7 +3934,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 634898653}
-  - {fileID: 936811662}
   m_Father: {fileID: 343826808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

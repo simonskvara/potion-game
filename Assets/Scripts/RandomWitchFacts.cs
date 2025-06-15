@@ -12,6 +12,11 @@ public class RandomWitchFacts : MonoBehaviour
 
     private void OnEnable()
     {
+        SetRandomFact();
+    }
+
+    private void SetRandomFact()
+    {
         string fact = facts[Random.Range(0, facts.Count)];
         factText.text = fact;
     }

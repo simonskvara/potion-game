@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 2121271722630710037}
   - component: {fileID: 5517523231397276712}
   - component: {fileID: 914742050820232339}
-  - component: {fileID: 516499958207155125}
   - component: {fileID: 5827672097250245691}
   - component: {fileID: 8631798753260838524}
   m_Layer: 3
@@ -126,20 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   orientation: {fileID: 6340289539854473648}
---- !u!114 &516499958207155125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3786939349454671102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f966b5a4f6c99b44970a357b3bd6c35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactorSource: {fileID: 2121271722630710037}
-  interactRange: 2
 --- !u!20 &5827672097250245691
 Camera:
   m_ObjectHideFlags: 0
@@ -264,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -321,6 +306,7 @@ GameObject:
   - component: {fileID: 3135287151892380817}
   - component: {fileID: 6648589579663447466}
   - component: {fileID: 5533139265754579363}
+  - component: {fileID: 4173514007486523216}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -405,6 +391,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   pickupDistance: 3
+--- !u!114 &4173514007486523216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778138647144662402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f966b5a4f6c99b44970a357b3bd6c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorSource: {fileID: 2121271722630710037}
+  interactRange: 2
 --- !u!1 &8495402914767659982
 GameObject:
   m_ObjectHideFlags: 0

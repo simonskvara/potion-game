@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,12 +7,14 @@ using Random = UnityEngine.Random;
 public class IngredientContainer : MonoBehaviour, IInteractable
 {
     [SerializeField] private string ingredientsName;
-    public string IngredientsName => ingredientsName;
 
     [SerializeField] private List<GameObject> ingredientsToSpawn;
     [SerializeField] private Transform spawnPoint;
 
     [SerializeField] private Outline outline;
+
+    [SerializeField] private float waitBetweenSpawn;
+    private bool canSpawm = true;
 
     private void Start()
     {
@@ -30,6 +33,8 @@ public class IngredientContainer : MonoBehaviour, IInteractable
 
     private void SpawnIngredient()
     {
+        if (!canSpawm) return;
+        
         if (ingredientsToSpawn.Count != 0)
         {
             GameObject ingredient = ingredientsToSpawn[Random.Range(0, ingredientsToSpawn.Count)];
@@ -56,5 +61,12 @@ public class IngredientContainer : MonoBehaviour, IInteractable
     private void OnMouseExit()
     {
         DisableOutline();
+    }
+
+    private IEnumerator Wait()
+    {
+        canSpawm = false;
+        yield return new WaitForSeconds(waitBetweenSpawn);
+        canSpawm = true;
     }
 }

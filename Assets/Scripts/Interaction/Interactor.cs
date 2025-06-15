@@ -50,6 +50,7 @@ public class Interactor : MonoBehaviour
         
         if (currentInteractable != null)
         {
+            currentInteractable.DisableOutline();
             uiManager.UpdateInteractionDescription("");
             currentInteractable = null;
         }

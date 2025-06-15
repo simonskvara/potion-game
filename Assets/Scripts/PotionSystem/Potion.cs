@@ -29,11 +29,32 @@ public class Potion : MonoBehaviour
             case PotionEffect.Combustion:
                 break;
                 
+            case PotionEffect.Pregnancy:
+                break;
+            
+            case PotionEffect.ExtraLimb:
+                break;
+            
+            case PotionEffect.Tentacles:
+                break;
+            
+            case PotionEffect.Furrysation:
+                break;
+            
             case PotionEffect.Zombification:
                 break;
                 
+            case PotionEffect.Gelatin:
+                break;
+            
+            case PotionEffect.Velocipastor:
+                break;
+            
+            case PotionEffect.Childification:
+                break;
+            
             default:
-                // No effect for failed potions
+                // No effect for failed potions, priest mocks
                 break;
         }
     }

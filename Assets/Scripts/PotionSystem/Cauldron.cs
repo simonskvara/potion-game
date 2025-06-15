@@ -23,7 +23,7 @@ public class Cauldron : MonoBehaviour
         
         currentIngredients.Add(ingredient);
         ingredientObjects.Add(ingredientObject);
-        Debug.Log("added ingredient");
+        Debug.Log("added: " + ingredient);
         
         if (currentIngredients.Count == 3)
         {
@@ -33,7 +33,7 @@ public class Cauldron : MonoBehaviour
     
     private IEnumerator BrewPotion()
     {
-        yield return new WaitForSeconds(1f); // Brewing delay
+        yield return new WaitForSeconds(2f); // Brewing delay
         
         PotionEffect effect = FindMatchingEffect();
         SpawnPotion(effect);

@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientsName: Template
-  ingredientsToSpawn:
-  - {fileID: 0}
+  ingredientsToSpawn: []
   spawnPoint: {fileID: 7852768155019467489}
   outline: {fileID: 4006874466282023563}
+  waitBetweenSpawn: 1
 --- !u!65 &8341262883862446103
 BoxCollider:
   m_ObjectHideFlags: 0

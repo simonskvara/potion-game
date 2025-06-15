@@ -20,6 +20,13 @@ public enum PotionEffect
     None,
     Goblinization,
     Combustion,
+    Pregnancy,
+    ExtraLimb,
+    Tentacles,
+    Furrysation,
     Zombification,
+    Gelatin,
+    Velocipastor,
+    Childification
     
 }

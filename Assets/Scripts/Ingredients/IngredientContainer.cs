@@ -39,6 +39,7 @@ public class IngredientContainer : MonoBehaviour, IInteractable
         {
             GameObject ingredient = ingredientsToSpawn[Random.Range(0, ingredientsToSpawn.Count)];
             Instantiate(ingredient, spawnPoint.position, Quaternion.identity);
+            StartCoroutine(Wait());
         }
     }
 

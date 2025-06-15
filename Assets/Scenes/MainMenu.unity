@@ -6554,6 +6554,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907466194121972803, guid: 46a5d844927dda74c95fc071ac6ad93a, type: 3}
+      propertyPath: lockCursor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8973770903029043598, guid: 46a5d844927dda74c95fc071ac6ad93a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0e5fc50db06edd59461f9c1751e073e7f971130c"
+      "hash": "cfa0cdbf137fcd4d219af7fc3f22b00fec7b8aa6"
     },
     "com.unity.2d.animation": {
       "version": "10.1.4",
@@ -206,6 +206,15 @@
       "depth": 3,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.postprocessing": {
+      "version": "3.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {

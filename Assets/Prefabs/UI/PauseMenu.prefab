@@ -2309,7 +2309,6 @@ GameObject:
   - component: {fileID: 8405042902525250170}
   - component: {fileID: 8907466194121972803}
   - component: {fileID: 2029587708640521953}
-  - component: {fileID: 1757914290842241072}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2431,21 +2430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089dc1c7d6ad7b44b9554feadcb8491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1757914290842241072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451133816397178866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780961aebe0240249b15752b649349a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterSlider: {fileID: 7402348659843143474}
-  musicSlider: {fileID: 6389018190770782453}
-  sfxSlider: {fileID: 3470323847103517736}
 --- !u!1 &4770612274702058394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123163387571037378}
+  - component: {fileID: 646118210240632279}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -3248,6 +3233,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &646118210240632279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809475572753587333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780961aebe0240249b15752b649349a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSlider: {fileID: 7402348659843143474}
+  musicSlider: {fileID: 6389018190770782453}
+  sfxSlider: {fileID: 3470323847103517736}
 --- !u!1 &6857032764577721711
 GameObject:
   m_ObjectHideFlags: 0

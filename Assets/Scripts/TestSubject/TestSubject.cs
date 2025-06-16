@@ -6,17 +6,19 @@ public class TestSubject : MonoBehaviour, IInteractable
     [Header("Subject models, please don't touch")]
     [SerializeField] private GameObject baseModel;
     [SerializeField] private GameObject[] subjectModels;
-    [SerializeField] private Animator transformationLight;
     
+    [Header("Other")]
+    [SerializeField] private Animator transformationLight;
     [SerializeField] private string description;
     
-    [SerializeField] private bool isTransformed;
+    private bool isTransformed;
 
     [Header("Sound")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] priestVoiceLines;
 
     [Header("Unity Events")] 
+    public UnityEvent transformationEvent;
     public UnityEvent resetEvent;
     public UnityEvent goblinizationEvent;
     public UnityEvent combustionEvent;
@@ -68,6 +70,7 @@ public class TestSubject : MonoBehaviour, IInteractable
         }
         
         transformationLight.SetTrigger("LightOn");
+        transformationEvent?.Invoke();
         
         switch (effect)
         {

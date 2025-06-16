@@ -6,7 +6,7 @@ public class TestSubject : MonoBehaviour, IInteractable
     [Header("Subject models, please don't touch")]
     [SerializeField] private GameObject baseModel;
     [SerializeField] private GameObject[] subjectModels;
-    [SerializeField] private GameObject transformationLight;
+    [SerializeField] private Animator transformationLight;
     
     [SerializeField] private string description;
     
@@ -66,7 +66,7 @@ public class TestSubject : MonoBehaviour, IInteractable
             subjectModels[effectIndex].SetActive(true);
         }
         
-        transformationLight.SetActive(true);
+        transformationLight.SetTrigger("LightOn");
         
         switch (effect)
         {
@@ -196,7 +196,7 @@ public class TestSubject : MonoBehaviour, IInteractable
             if (model) model.SetActive(false);
         }
         
-        transformationLight.SetActive(false);
+        transformationLight.SetTrigger("LightOff");
         
         baseModel.SetActive(true);
         

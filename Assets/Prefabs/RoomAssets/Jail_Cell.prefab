@@ -2093,7 +2093,7 @@ MonoBehaviour:
   - {fileID: 4702831816270126552}
   - {fileID: 7570543132687286254}
   - {fileID: 6827112978176874030}
-  transformationLight: {fileID: 9073850108551549950}
+  transformationLight: {fileID: 4278908246021928093}
   description: Your Priest
   isTransformed: 0
   audioSource: {fileID: 3212745175270485938}

@@ -2604,18 +2604,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 732133702322664362, guid: dd4687a54ccadb04b8b10e6cb99e9f1c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 732133702322664362, guid: dd4687a54ccadb04b8b10e6cb99e9f1c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1537643927}
   m_SourcePrefab: {fileID: 100100000, guid: dd4687a54ccadb04b8b10e6cb99e9f1c, type: 3}
 --- !u!4 &1537643925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 99887426225891600, guid: dd4687a54ccadb04b8b10e6cb99e9f1c, type: 3}
   m_PrefabInstance: {fileID: 1537643924}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1537643926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 732133702322664362, guid: dd4687a54ccadb04b8b10e6cb99e9f1c, type: 3}
+  m_PrefabInstance: {fileID: 1537643924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1537643927
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537643926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28243eed7fe7bc448a692fcc0c9d0a7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1550673010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3003,7 +3033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6421685514056619112, guid: 1705d822dd4b45244b7dc1cdafdbb861, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

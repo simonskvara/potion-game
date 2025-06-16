@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4094714881559928690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2778554841000897184}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2778554841000897184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094714881559928690}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.192, y: -0.01, z: 0.455}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6633033379072422071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5738226659235394571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6633033379072422071}
+  - component: {fileID: 7536052807107431665}
+  m_Layer: 0
+  m_Name: Cauldron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6633033379072422071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738226659235394571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.433, y: 9.13, z: -4.463}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2644072805148953202}
+  - {fileID: 2778554841000897184}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7536052807107431665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738226659235394571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed5ea6a77d9c17478cce55dd6243517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipesSO: {fileID: 11400000, guid: dab7487733c3d25459caa1dd85bef310, type: 2}
+  potionSpawnPoint: {fileID: 2778554841000897184}
+  potionPrefab: {fileID: 3750269335209664037, guid: f303278fa3ec414418c56562205b4485, type: 3}
+  brewingTime: 2
+--- !u!1001 &6369057829828220260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6633033379072422071}
+    m_Modifications:
+    - target: {fileID: 8617922387507676588, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_Name
+      value: Cauldron
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.16254283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.98670155
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 584747265010584620, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+--- !u!4 &2644072805148953202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
+  m_PrefabInstance: {fileID: 6369057829828220260}
+  m_PrefabAsset: {fileID: 0}

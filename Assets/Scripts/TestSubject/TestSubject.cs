@@ -17,6 +17,7 @@ public class TestSubject : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip[] priestVoiceLines;
 
     [Header("Unity Events")] 
+    public UnityEvent resetEvent;
     public UnityEvent goblinizationEvent;
     public UnityEvent combustionEvent;
     public UnityEvent pregnancyEvent;
@@ -201,6 +202,8 @@ public class TestSubject : MonoBehaviour, IInteractable
         baseModel.SetActive(true);
         
         isTransformed = false;
+        
+        resetEvent?.Invoke();
     }
     
 

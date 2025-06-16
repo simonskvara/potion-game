@@ -10,52 +10,14 @@ public class Potion : MonoBehaviour
         // Set visual appearance based on effect
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("TestSubject"))
+        if (other.gameObject.CompareTag("TestSubject"))
         {
-            ApplyEffect(other.gameObject, other.GetComponent<TestSubject>());
+            other.gameObject.GetComponent<TestSubject>().ApplyEffect(_effect);
             Destroy(gameObject);
         }
     }
     
-    private void ApplyEffect(GameObject targetObj, TestSubject targetSubject)
-    {
-        switch (_effect)
-        {
-            case PotionEffect.Goblinization:
-                break;
-                
-            case PotionEffect.Combustion:
-                break;
-                
-            case PotionEffect.Pregnancy:
-                break;
-            
-            case PotionEffect.ExtraLimb:
-                break;
-            
-            case PotionEffect.Tentacles:
-                break;
-            
-            case PotionEffect.Furrysation:
-                break;
-            
-            case PotionEffect.Zombification:
-                break;
-                
-            case PotionEffect.Gelatin:
-                break;
-            
-            case PotionEffect.Velocipastor:
-                break;
-            
-            case PotionEffect.Childification:
-                break;
-            
-            default:
-                // No effect for failed potions, priest mocks
-                break;
-        }
-    }
+    
 }

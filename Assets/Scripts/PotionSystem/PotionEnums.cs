@@ -27,6 +27,7 @@ public enum PotionEffect
     Zombification,
     Gelatin,
     Velocipastor,
-    Childification
+    Childification,
+    Reset
     
 }

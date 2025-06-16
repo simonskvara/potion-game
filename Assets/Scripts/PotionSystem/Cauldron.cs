@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Cauldron : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Cauldron : MonoBehaviour
     private List<Ingredient> currentIngredients = new List<Ingredient>();
 
     private List<GameObject> ingredientObjects = new List<GameObject>();
+
+    public UnityEvent ingredientAdded;
+    public UnityEvent potionBrewEnded;
     
     public void AddIngredient(Ingredient ingredient, GameObject ingredientObject)
     {
@@ -26,6 +30,8 @@ public class Cauldron : MonoBehaviour
         currentIngredients.Add(ingredient);
         ingredientObjects.Add(ingredientObject);
         Debug.Log("added: " + ingredient);
+        
+        ingredientAdded?.Invoke();
         
         if (currentIngredients.Count == 3)
         {
@@ -40,7 +46,7 @@ public class Cauldron : MonoBehaviour
         PotionEffect effect = FindMatchingEffect();
         SpawnPotion(effect);
         currentIngredients.Clear();
-
+        potionBrewEnded?.Invoke();
 
         foreach (GameObject ingredient in ingredientObjects)
         {

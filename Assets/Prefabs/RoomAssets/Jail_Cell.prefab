@@ -1725,6 +1725,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6315672695823576869, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
   m_PrefabInstance: {fileID: 5829508407739543034}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2907688366050218596 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8700035473269227422, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+  m_PrefabInstance: {fileID: 5829508407739543034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6095561262378886532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2317,6 +2322,21 @@ MonoBehaviour:
   description: Your Priest
   audioSource: {fileID: 3212745175270485938}
   priestVoiceLines: []
+  transformationEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2907688366050218596}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   resetEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2423,7 +2443,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

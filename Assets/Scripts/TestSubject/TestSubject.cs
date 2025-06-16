@@ -70,7 +70,9 @@ public class TestSubject : MonoBehaviour, IInteractable
         }
         
         transformationLight.SetTrigger("LightOn");
-        transformationEvent?.Invoke();
+        
+        if (effect != PotionEffect.None)
+            transformationEvent?.Invoke();
         
         switch (effect)
         {
@@ -140,7 +142,7 @@ public class TestSubject : MonoBehaviour, IInteractable
 
     private void NothingHappens()
     {
-        
+        isTransformed = false;
     }
 
     private void Goblinization()

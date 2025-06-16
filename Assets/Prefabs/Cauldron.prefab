@@ -41,9 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6633033379072422071}
   - component: {fileID: 7536052807107431665}
+  - component: {fileID: 1618031100197110269}
   m_Layer: 0
   m_Name: Cauldron
-  m_TagString: Untagged
+  m_TagString: Cauldron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +82,27 @@ MonoBehaviour:
   potionSpawnPoint: {fileID: 2778554841000897184}
   potionPrefab: {fileID: 3750269335209664037, guid: f303278fa3ec414418c56562205b4485, type: 3}
   brewingTime: 2
+--- !u!135 &1618031100197110269
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738226659235394571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.45
+  m_Center: {x: 0, y: -0.06, z: 0}
 --- !u!1001 &6369057829828220260
 PrefabInstance:
   m_ObjectHideFlags: 0

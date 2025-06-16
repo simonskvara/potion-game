@@ -228,6 +228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMouseSensitivity: 100
   orientation: {fileID: 6340289539854473648}
+  zoomFOV: 40
+  zoomSpeed: 10
+  zoomSensitivityFactor: 0.5
 --- !u!20 &5827672097250245691
 Camera:
   m_ObjectHideFlags: 0

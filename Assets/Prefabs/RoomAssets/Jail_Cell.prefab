@@ -1671,6 +1671,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1801094393632560467}
     m_Modifications:
+    - target: {fileID: 201762720049240968, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070532149924551657, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6315672695823576869, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1207358
@@ -1711,9 +1719,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7945812904127311739, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099127990594074027, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208707601033345760, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8593464584776411535, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
       propertyPath: m_Name
       value: vfx_Transform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700035473269227422, guid: f6bd86b71cd614f4bb75ea87e55f7689, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2321,7 +2345,17 @@ MonoBehaviour:
   transformationLight: {fileID: 4278908246021928093}
   description: Your Priest
   audioSource: {fileID: 3212745175270485938}
-  priestVoiceLines: []
+  priestVoiceLines:
+  - {fileID: 8300000, guid: 53c8118ded170db47aedab08cba86d85, type: 3}
+  - {fileID: 8300000, guid: 09b3f2170cddfcf4eadf0ac7b1161d1d, type: 3}
+  - {fileID: 8300000, guid: 78c78b88b75de6e4599f6fa65af44c1c, type: 3}
+  - {fileID: 8300000, guid: 56dee340ce76c2a4380f5fe7d2ed6e84, type: 3}
+  - {fileID: 8300000, guid: cd461cee1d9d8834a999eaf100047440, type: 3}
+  - {fileID: 8300000, guid: 7675d571d1a3bfb4884969e34cc1b532, type: 3}
+  - {fileID: 8300000, guid: 912c31190a23c9a4fb7f493dcc5e9ff7, type: 3}
+  - {fileID: 8300000, guid: 51d257872ab7bb141a9beb74d5af2457, type: 3}
+  - {fileID: 8300000, guid: 882c05611ddc7e143b565bb73da1ff1d, type: 3}
+  - {fileID: 8300000, guid: fcb2badf413d04646baef7ee4f514488, type: 3}
   transformationEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2455,7 +2489,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

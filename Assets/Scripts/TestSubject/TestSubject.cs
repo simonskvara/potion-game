@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +17,9 @@ public class TestSubject : MonoBehaviour, IInteractable
     [Header("Sound")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] priestVoiceLines;
+    
+    private List<int> _voiceLinePlayOrder;
+    private int _currentVoiceLineIndex;
 
     [Header("Unity Events")] 
     public UnityEvent transformationEvent;
@@ -126,10 +130,45 @@ public class TestSubject : MonoBehaviour, IInteractable
         }
     }
     
+    private void InitializeVoiceLinePlayOrder()
+    {
+        _voiceLinePlayOrder = new List<int>();
+        _currentVoiceLineIndex = 0;
+
+        for (int i = 0; i < priestVoiceLines.Length; i++)
+        {
+            _voiceLinePlayOrder.Add(i);
+        }
+
+        // Shuffle the list using Fisher-Yates algorithm
+        for (int i = 0; i < _voiceLinePlayOrder.Count; i++)
+        {
+            int randomIndex = Random.Range(i, _voiceLinePlayOrder.Count);
+            (_voiceLinePlayOrder[i], _voiceLinePlayOrder[randomIndex]) = (_voiceLinePlayOrder[randomIndex], _voiceLinePlayOrder[i]);
+        }
+    }
+    
     private void PlayVoiceLine()
     {
-        int rand = Random.Range(0, priestVoiceLines.Length);
-        PlaySound(priestVoiceLines[rand]);
+        if (priestVoiceLines == null || priestVoiceLines.Length == 0)
+            return;
+
+        // Initialize if not done yet
+        if (_voiceLinePlayOrder == null || _voiceLinePlayOrder.Count == 0)
+        {
+            InitializeVoiceLinePlayOrder();
+        }
+
+        // Reset if we've played all clips
+        if (_voiceLinePlayOrder != null && _currentVoiceLineIndex >= _voiceLinePlayOrder.Count)
+        {
+            InitializeVoiceLinePlayOrder();
+        }
+
+        int clipIndex = _voiceLinePlayOrder[_currentVoiceLineIndex];
+        _currentVoiceLineIndex++;
+
+        PlaySound(priestVoiceLines[clipIndex]);
     }
 
     private void PlaySound(AudioClip sound)

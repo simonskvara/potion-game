@@ -24,6 +24,7 @@ public class TestSubject : MonoBehaviour, IInteractable
     [Header("Unity Events")] 
     public UnityEvent transformationEvent;
     public UnityEvent resetEvent;
+    public UnityEvent nothingHappensEvent;
     public UnityEvent goblinizationEvent;
     public UnityEvent combustionEvent;
     public UnityEvent pregnancyEvent;
@@ -184,6 +185,7 @@ public class TestSubject : MonoBehaviour, IInteractable
     private void NothingHappens()
     {
         isTransformed = false;
+        nothingHappensEvent?.Invoke();
     }
 
     private void Goblinization()

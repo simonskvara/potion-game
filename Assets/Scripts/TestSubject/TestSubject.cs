@@ -56,6 +56,8 @@ public class TestSubject : MonoBehaviour, IInteractable
 
     private void ApplyTransformation(PotionEffect effect)
     {
+        isTransformed = true;
+        
         Debug.Log("apply transformation");
         baseModel.SetActive(false);
         foreach (GameObject model in subjectModels)
@@ -120,8 +122,6 @@ public class TestSubject : MonoBehaviour, IInteractable
                 NothingHappens();
                 break;
         }
-
-        isTransformed = true;
     }
     
     private void PlayVoiceLine()

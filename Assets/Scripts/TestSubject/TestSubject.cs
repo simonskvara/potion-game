@@ -130,7 +130,7 @@ public class TestSubject : MonoBehaviour, IInteractable
         PlaySound(priestVoiceLines[rand]);
     }
 
-    public void PlaySound(AudioClip sound)
+    private void PlaySound(AudioClip sound)
     {
         audioSource.Stop();
         

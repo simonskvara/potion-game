@@ -33,12 +33,16 @@ public class PlayerCam : MonoBehaviour
         
         _inputSystem.Player.Look.performed += OnLookPerformed;
         _inputSystem.Player.Look.canceled += ctx => _lookInput = Vector2.zero;
+        
+        SettingsManager.OnSensitivityChanged.AddListener(UpdateSensitivity);
     }
 
     private void OnDisable()
     {
         _inputSystem.Player.Look.performed -= OnLookPerformed;
         _inputSystem.Player.Disable();
+        
+        SettingsManager.OnSensitivityChanged.RemoveListener(UpdateSensitivity);
     }
 
     private void Update()

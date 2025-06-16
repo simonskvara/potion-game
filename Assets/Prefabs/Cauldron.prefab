@@ -126,12 +126,12 @@ MonoBehaviour:
   potionBrewEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6585004478981071443}
+      - m_Target: {fileID: 3252708475679807695}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 8461721121036554ca59bbd27e29b0e4, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 3129f732f6629b6419bdc7afd0d68031, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -384,10 +384,5 @@ PrefabInstance:
 --- !u!4 &2644072805148953202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8994482771069525782, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
-  m_PrefabInstance: {fileID: 6369057829828220260}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &6585004478981071443 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 216686214094337847, guid: d13f24d7a20f8db40ba902d56c0952a9, type: 3}
   m_PrefabInstance: {fileID: 6369057829828220260}
   m_PrefabAsset: {fileID: 0}

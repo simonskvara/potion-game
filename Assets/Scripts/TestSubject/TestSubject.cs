@@ -71,10 +71,12 @@ public class TestSubject : MonoBehaviour, IInteractable
             subjectModels[effectIndex].SetActive(true);
         }
         
-        transformationLight.SetTrigger("LightOn");
-        
+        transformationEvent?.Invoke();
+
         if (effect != PotionEffect.None)
-            transformationEvent?.Invoke();
+        {
+            transformationLight.SetTrigger("LightOn");
+        }
         
         switch (effect)
         {

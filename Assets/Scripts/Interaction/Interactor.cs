@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 interface IInteractable
 {
@@ -21,17 +22,38 @@ public class Interactor : MonoBehaviour
 
     private UIManager uiManager;
 
+    private InputSystem_Actions inputSystem;
+
+    private void Awake()
+    {
+        inputSystem = new InputSystem_Actions();
+    }
+
     private void Start()
     {
         uiManager = UIManager.Instance;
     }
 
+    private void OnEnable()
+    {
+        inputSystem.Player.Enable();
+        inputSystem.Player.Interact.started += TryInteract;
+    }
+
+    private void OnDisable()
+    {
+        inputSystem.Player.Interact.started -= TryInteract;
+        inputSystem.Player.Disable();
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
             TryInteract();
-        }
+        }*/
+        
+        
         
         Ray r = new Ray(interactorSource.position, interactorSource.forward);
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
@@ -56,7 +78,7 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private void TryInteract()
+    private void TryInteract(InputAction.CallbackContext context)
     {
         Ray r = new Ray(interactorSource.position, interactorSource.forward);
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))

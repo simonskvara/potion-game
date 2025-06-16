@@ -588,6 +588,12 @@ MonoBehaviour:
   potionSpawnPoint: {fileID: 816213276}
   potionPrefab: {fileID: 3750269335209664037, guid: f303278fa3ec414418c56562205b4485, type: 3}
   brewingTime: 0
+  ingredientAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  potionBrewEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1479641250
 GameObject:
   m_ObjectHideFlags: 0

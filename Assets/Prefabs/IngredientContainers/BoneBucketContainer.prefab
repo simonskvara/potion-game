@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7301094647306934126
+--- !u!1001 &2388553203422931093
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 269713666348776431, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_Name
-      value: MoldyBreadContainer
+      value: BoneBucketContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533409172102546290, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533409172102546290, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533409172102546290, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533409172102546290, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2762312384226899292, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: ingredientsName
-      value: Moldy Bread
+      value: Bone Bucket
       objectReference: {fileID: 0}
     - target: {fileID: 2762312384226899292, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: ingredientsToSpawn.Array.size
@@ -23,30 +39,26 @@ PrefabInstance:
     - target: {fileID: 2762312384226899292, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: 'ingredientsToSpawn.Array.data[0]'
       value: 
-      objectReference: {fileID: 4132404880476782031, guid: 56b42adcafa94c5409b6be83fa216716, type: 3}
-    - target: {fileID: 2970148492480769407, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
-      propertyPath: m_Name
-      value: MoldyBread
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9175276316346589556, guid: a661c8f4fd2053c4aa5249695b485b02, type: 3}
     - target: {fileID: 4936105726050438779, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cbbd39addb71ec548ba01d65ca3b8f2d, type: 3}
+      objectReference: {fileID: 21300000, guid: df787cc5b89f6234db93647ebadbe039, type: 3}
     - target: {fileID: 4936105726050438779, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.342
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.133
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.091
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75,6 +87,18 @@ PrefabInstance:
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852768155019467489, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341262883862446103, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341262883862446103, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

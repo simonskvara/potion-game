@@ -8,6 +8,8 @@ public class Cauldron : MonoBehaviour
     
     [SerializeField] private Transform potionSpawnPoint;
     [SerializeField] private GameObject potionPrefab;
+
+    [SerializeField] private float brewingTime;
     
     private List<Ingredient> currentIngredients = new List<Ingredient>();
 
@@ -33,7 +35,7 @@ public class Cauldron : MonoBehaviour
     
     private IEnumerator BrewPotion()
     {
-        yield return new WaitForSeconds(2f); // Brewing delay
+        yield return new WaitForSeconds(brewingTime); // Brewing delay
         
         PotionEffect effect = FindMatchingEffect();
         SpawnPotion(effect);

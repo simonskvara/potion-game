@@ -13,6 +13,10 @@ PrefabInstance:
       value: UnicornHornContainer
       objectReference: {fileID: 0}
     - target: {fileID: 2762312384226899292, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
+      propertyPath: ingredientsName
+      value: Unicorn Horns
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762312384226899292, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: ingredientsToSpawn.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -30,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7086341
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.923
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.909
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7389909293419511503, guid: 23d11c8181ed4694383b3cd870c6c9b0, type: 3}
       propertyPath: m_LocalRotation.w

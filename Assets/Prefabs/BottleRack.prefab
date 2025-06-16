@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientsName: Reset Potions
   ingredientsToSpawn:
-  - {fileID: 3750269335209664037, guid: f303278fa3ec414418c56562205b4485, type: 3}
+  - {fileID: 3750269335209664037, guid: 8dbfb55b060b21443be34dd22b14e4b1, type: 3}
   spawnPoint: {fileID: 6793176978132816397}
   outline: {fileID: 6395777309302953320}
   waitBetweenSpawn: 1

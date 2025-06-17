@@ -17,6 +17,8 @@ public class PlayerCam : MonoBehaviour
     private float xRotation;
     private float yRotation;
     private Vector2 lookInput;
+
+    private bool isFrozen;
     
     // zoom variables
     private float currentFOV;
@@ -70,6 +72,8 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
+        if(isFrozen) return;
+        
         HandleCameraRotation();
         HandleZoom();
     }
@@ -117,5 +121,22 @@ public class PlayerCam : MonoBehaviour
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", defaultMouseSensitivity);
         currentSensitivity = mouseSensitivity;
+    }
+    
+    /// <summary>
+    /// Freezes all camera movement and input processing
+    /// </summary>
+    public void FreezeCamera()
+    {
+        isFrozen = true;
+        lookInput = Vector2.zero;  // Clear any pending input
+    }
+
+    /// <summary>
+    /// Resumes normal camera operation
+    /// </summary>
+    public void UnfreezeCamera()
+    {
+        isFrozen = false;
     }
 }

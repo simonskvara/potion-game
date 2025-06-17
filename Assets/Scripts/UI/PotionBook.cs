@@ -5,6 +5,8 @@ using UnityEngine;
 public class PotionBook : MonoBehaviour
 {
     public static PotionBook Instance;
+    
+    
 
     [SerializeField] private GameObject bookObject;
 
@@ -12,6 +14,18 @@ public class PotionBook : MonoBehaviour
 
     private PlayerCam playerCam;
     private PlayerMovement playerMovement;
+    
+    
+    
+    
+    [System.Serializable]
+    public class RecipeUI
+    {
+        public PotionEffect effect;
+        public GameObject cover;
+    }
+    
+    public List<RecipeUI> recipeUIs = new List<RecipeUI>();
 
     private void Awake()
     {
@@ -28,6 +42,30 @@ public class PotionBook : MonoBehaviour
         playerMovement = FindAnyObjectByType<PlayerMovement>();
     }
 
+    private void Start()
+    {
+        foreach (var recipeUI in recipeUIs)
+        {
+            if (PotionDiscovery.Instance.IsEffectDiscovered(recipeUI.effect))
+            {
+                RevealRecipe(recipeUI.effect);
+            }
+        }
+    }
+    
+    public void RevealRecipe(PotionEffect effect)
+    {
+        // Find and reveal the specific recipe
+        foreach (var recipeUI in recipeUIs)
+        {
+            if (recipeUI.effect == effect && recipeUI.cover != null)
+            {
+                recipeUI.cover.SetActive(false);
+                break;
+            }
+        }
+    }
+
     public void OpenBook()
     {
         playerCam.FreezeCamera();
@@ -36,6 +74,18 @@ public class PotionBook : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        
+        foreach (var recipeUI in recipeUIs)
+        {
+            if (PotionDiscovery.Instance.IsEffectDiscovered(recipeUI.effect))
+            {
+                recipeUI.cover.SetActive(false);
+            }
+            else
+            {
+                recipeUI.cover.SetActive(true);
+            }
+        }
     }
 
     public void CloseBook()

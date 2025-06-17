@@ -47,6 +47,11 @@ public class TestSubject : MonoBehaviour, IInteractable
     {
         if (isTransformed && effect != PotionEffect.Reset) return;
         
+        if (effect != PotionEffect.Reset)
+        {
+            PotionDiscovery.Instance.DiscoverEffect(effect);
+        }
+        
         switch (effect)
         {
             case PotionEffect.Reset:

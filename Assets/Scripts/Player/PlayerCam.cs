@@ -43,6 +43,24 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        // Capture initial world rotation
+        Vector3 currentRot = transform.eulerAngles;
+        yRotation = currentRot.y;
+        xRotation = NormalizeAngle(currentRot.x);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp pitch
+
+        // Apply initial rotation
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+    
+    private float NormalizeAngle(float angle)
+    {
+        angle %= 360;
+        if (angle > 180) 
+            angle -= 360;
+        return angle;
     }
     
     private void OnEnable()

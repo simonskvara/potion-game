@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using skv_toolkit.MenuScripts;
 using UnityEngine;
 
 public class PotionBook : MonoBehaviour
@@ -68,6 +69,8 @@ public class PotionBook : MonoBehaviour
 
     public void OpenBook()
     {
+        PauseMenu.Instance.DisablePauseMenu();
+        
         playerCam.FreezeCamera();
         playerMovement.FreezeMovement();
         bookObject.SetActive(true);
@@ -90,6 +93,8 @@ public class PotionBook : MonoBehaviour
 
     public void CloseBook()
     {
+        PauseMenu.Instance.EnablePauseMenu();
+        
         playerCam.UnfreezeCamera();
         playerMovement.UnfreezeMovement();
         bookObject.SetActive(false);

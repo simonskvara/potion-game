@@ -5,11 +5,16 @@ using UnityEngine.UI;
 public class MouseSettings : MonoBehaviour
 {
     [SerializeField] private Slider sensitivitySlider;
-    [SerializeField] private float minSensitivity = 10f;
-    [SerializeField] private float maxSensitivity = 200f;
+    
+    private float minSensitivity;
+    private float maxSensitivity;
 
     private void Start()
     {
+        minSensitivity = SettingsManager.MinSensitivity;
+        maxSensitivity = SettingsManager.MaxSensitivity;
+        
+        
         sensitivitySlider.minValue = minSensitivity;
         sensitivitySlider.maxValue = maxSensitivity;
         

@@ -553,8 +553,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Potion Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c7e2f3ec171ea23428240550b9020f38, type: 2}
-  m_sharedMaterial: {fileID: -3872590221299987420, guid: c7e2f3ec171ea23428240550b9020f38, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 798bf29f259d9bb4b806b7a71eed5a2e, type: 2}
+  m_sharedMaterial: {fileID: -1507172851741730321, guid: 798bf29f259d9bb4b806b7a71eed5a2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -584,9 +584,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using skv_toolkit.MenuScripts;
 using UnityEngine;
@@ -110,8 +111,7 @@ public class PotionBook : MonoBehaviour
 
     public void CloseBook()
     {
-        if(PauseMenu.Instance != null)
-            PauseMenu.Instance.EnablePauseMenu();
+        
         
         playerCam.UnfreezeCamera();
         playerMovement.UnfreezeMovement();
@@ -120,6 +120,15 @@ public class PotionBook : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        StartCoroutine(DelayedEnablePauseMenu());
+    }
+    
+    private IEnumerator DelayedEnablePauseMenu()
+    {
+        yield return new WaitForEndOfFrame();
+        if(PauseMenu.Instance != null)
+            PauseMenu.Instance.EnablePauseMenu();
     }
     
     public void CloseBook(InputAction.CallbackContext context)

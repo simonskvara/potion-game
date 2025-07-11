@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using skv_toolkit.MenuScripts;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PotionBook : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PotionBook : MonoBehaviour
 
     [SerializeField] private GameObject bookObject;
 
+    [SerializeField] private InputActionReference cancelInput;
+    
     public bool IsOpen { get; private set; } = false;
 
     private PlayerCam playerCam;
@@ -43,6 +46,18 @@ public class PotionBook : MonoBehaviour
         playerMovement = FindAnyObjectByType<PlayerMovement>();
     }
 
+    private void OnEnable()
+    {
+        cancelInput.action.Enable();
+        cancelInput.action.started += CloseBook;
+    }
+
+    private void OnDisable()
+    {
+        cancelInput.action.started -= CloseBook;
+        cancelInput.action.Enable();
+    }
+
     private void Start()
     {
         foreach (var recipeUI in recipeUIs)
@@ -69,8 +84,10 @@ public class PotionBook : MonoBehaviour
 
     public void OpenBook()
     {
-        PauseMenu.Instance.DisablePauseMenu();
-        
+        if(PauseMenu.Instance != null)
+            PauseMenu.Instance.DisablePauseMenu();
+
+        IsOpen = true;
         playerCam.FreezeCamera();
         playerMovement.FreezeMovement();
         bookObject.SetActive(true);
@@ -93,14 +110,24 @@ public class PotionBook : MonoBehaviour
 
     public void CloseBook()
     {
-        PauseMenu.Instance.EnablePauseMenu();
+        if(PauseMenu.Instance != null)
+            PauseMenu.Instance.EnablePauseMenu();
         
         playerCam.UnfreezeCamera();
         playerMovement.UnfreezeMovement();
         bookObject.SetActive(false);
+        IsOpen = false;
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    
+    public void CloseBook(InputAction.CallbackContext context)
+    {
+        if (IsOpen)
+        {
+            CloseBook();
+        }
     }
     
 }

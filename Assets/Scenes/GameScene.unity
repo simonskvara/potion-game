@@ -488,6 +488,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  poofEffect: {fileID: 0}
 --- !u!65 &158035921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5836,10 +5837,6 @@ PrefabInstance:
     - target: {fileID: 3680732630953674059, guid: b2fa7c92fffd3f548bb40b1ac3468502, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3786939349454671102, guid: b2fa7c92fffd3f548bb40b1ac3468502, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4784397698715732499, guid: b2fa7c92fffd3f548bb40b1ac3468502, type: 3}
       propertyPath: m_LocalScale.x

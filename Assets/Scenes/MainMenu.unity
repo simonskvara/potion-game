@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ed23d8daf3d265346ac6820faa110c71, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -3317,7 +3317,7 @@ GameObject:
   - component: {fileID: 966049100}
   - component: {fileID: 966049099}
   - component: {fileID: 966049104}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PlayerCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

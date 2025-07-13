@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4d8307ec8ecb99f408e6aa6dc1f01490310acc08"
+      "hash": "8a2fb6d409eaa6e45fd1a4af02ec744bd6dddd9a"
     },
     "com.singularitygroup.hotreload": {
       "version": "file:com.singularitygroup.hotreload",

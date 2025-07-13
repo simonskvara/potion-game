@@ -120,13 +120,7 @@ public class PotionBook : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
-        StartCoroutine(DelayedEnablePauseMenu());
-    }
-    
-    private IEnumerator DelayedEnablePauseMenu()
-    {
-        yield return new WaitForEndOfFrame();
+
         if(PauseMenu.Instance != null)
             PauseMenu.Instance.EnablePauseMenu();
     }

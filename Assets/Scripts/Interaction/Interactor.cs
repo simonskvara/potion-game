@@ -19,6 +19,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float interactRange;
     
     private IInteractable currentInteractable;
+    private IInteractable previousInteractable;
 
     private UIManager uiManager;
 
@@ -48,12 +49,6 @@ public class Interactor : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.F))
-        {
-            TryInteract();
-        }*/
-        
-        
         
         Ray r = new Ray(interactorSource.position, interactorSource.forward);
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
@@ -62,9 +57,11 @@ public class Interactor : MonoBehaviour
             {
                 if (interactObj != currentInteractable)
                 {
+                    previousInteractable = currentInteractable;
                     uiManager.UpdateInteractionDescription(interactObj.GetDescription());
                     currentInteractable = interactObj;
                 }
+                previousInteractable?.DisableOutline();
                 interactObj.EnableOutline();
                 return;
             }

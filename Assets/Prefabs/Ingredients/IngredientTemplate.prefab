@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339930755784029388}
   - component: {fileID: 2823972166313560335}
+  - component: {fileID: 3781347782005014483}
   m_Layer: 6
   m_Name: ingredient
   m_TagString: Untagged
@@ -87,6 +88,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3781347782005014483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333275113043019992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8447257703748313178
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 20
   rotationLerpSpeed: 15
+  outline: {fileID: 3781347782005014483}
 --- !u!114 &4852317244440594075
 MonoBehaviour:
   m_ObjectHideFlags: 0

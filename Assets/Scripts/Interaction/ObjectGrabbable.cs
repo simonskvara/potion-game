@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ObjectGrabbable : MonoBehaviour
+public class ObjectGrabbable : MonoBehaviour, IInteractable
 {
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
@@ -15,6 +15,9 @@ public class ObjectGrabbable : MonoBehaviour
     private Transform cameraTransform;
 
     private bool canGrab = true;
+
+    [Header("Outline")]
+    [SerializeField] private Outline outline;
 
     private void Awake()
     {
@@ -29,6 +32,8 @@ public class ObjectGrabbable : MonoBehaviour
         {
             Debug.LogWarning("Ingredient doesn't have the layer needed to work", gameObject);
         }
+        
+        DisableOutline();
     }
 
     public void DisableGrabbing() { canGrab = false;}
@@ -94,5 +99,28 @@ public class ObjectGrabbable : MonoBehaviour
         }
         
         objectRigidbody.angularVelocity = Vector3.zero;
+    }
+
+    
+    // interactable stuff
+    
+    public void Interact()
+    {
+        // nothing happens
+    }
+
+    public string GetDescription()
+    {
+        return "";
+    }
+
+    public void EnableOutline()
+    {
+        outline.enabled = true;
+    }
+
+    public void DisableOutline()
+    {
+        outline.enabled = false;
     }
 }

@@ -1300,7 +1300,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 3606aab7d506cc444abf46f81998a02a, type: 3}
   m_Resource: {fileID: 8300000, guid: 3606aab7d506cc444abf46f81998a02a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7386,10 +7386,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 103217157}
     m_Modifications:
-    - target: {fileID: 5086818789884537460, guid: 1ddc6b8b6f45d5b4f97e5a41fb884c71, type: 3}
-      propertyPath: m_Volume
-      value: 0.042
-      objectReference: {fileID: 0}
     - target: {fileID: 5086818789884537460, guid: 1ddc6b8b6f45d5b4f97e5a41fb884c71, type: 3}
       propertyPath: MaxDistance
       value: 5

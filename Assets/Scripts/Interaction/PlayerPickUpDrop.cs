@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPickUpDrop : MonoBehaviour
 {
@@ -9,15 +10,31 @@ public class PlayerPickUpDrop : MonoBehaviour
     [SerializeField] private float pickupDistance;
 
     private ObjectGrabbable objectGrabbable;
-    
-    private void Update()
+
+    private InputSystem_Actions inputSystem;
+
+    private void Awake()
     {
-        ProcessInput();
+        inputSystem = new InputSystem_Actions();
     }
 
-    private void ProcessInput()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        inputSystem.Player.LeftClick.Enable();
+        inputSystem.Player.LeftClick.started += ProcessInput;
+        inputSystem.Player.LeftClick.canceled += ProcessInput;
+    }
+
+    private void OnDisable()
+    {
+        inputSystem.Player.LeftClick.started -= ProcessInput;
+        inputSystem.Player.LeftClick.canceled -= ProcessInput;
+        inputSystem.Player.LeftClick.Disable();
+    }
+
+    private void ProcessInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
             if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
             {
@@ -28,7 +45,7 @@ public class PlayerPickUpDrop : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (context.canceled)
         {
             Drop();
         }

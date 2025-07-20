@@ -5925,9 +5925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981021846227713188, guid: 79ce3f03f82e8c24281306de577bdc30, type: 3}
       propertyPath: m_text
-      value: 'Chris Cruchacz Composer in Unity Asset Store
-
-        Daniel Yaniuk'
+      value: Daniel Yaniuk
       objectReference: {fileID: 0}
     - target: {fileID: 7981021846227713188, guid: 79ce3f03f82e8c24281306de577bdc30, type: 3}
       propertyPath: m_VerticalAlignment

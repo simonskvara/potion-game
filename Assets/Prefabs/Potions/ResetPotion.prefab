@@ -64,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 20
   rotationLerpSpeed: 15
+  outline: {fileID: 101668225738668410}
 --- !u!54 &2916421850399291115
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253,8 +254,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6252078613688488746, guid: c175cc8f923f8be45898949294e567f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 101668225738668410}
   m_SourcePrefab: {fileID: 100100000, guid: c175cc8f923f8be45898949294e567f0, type: 3}
+--- !u!1 &3942521246713854711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6252078613688488746, guid: c175cc8f923f8be45898949294e567f0, type: 3}
+  m_PrefabInstance: {fileID: 6950600622395042269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &101668225738668410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942521246713854711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &4466856714318078029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6739646683573406096, guid: c175cc8f923f8be45898949294e567f0, type: 3}

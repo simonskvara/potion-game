@@ -19,7 +19,6 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float interactRange;
     
     private IInteractable currentInteractable;
-    private IInteractable previousInteractable;
 
     private UIManager uiManager;
 
@@ -49,30 +48,50 @@ public class Interactor : MonoBehaviour
 
     private void Update()
     {
-        
+        // enabling and disabling outline, has to be a bit more complicated since there are multiple objects one can outline
         Ray r = new Ray(interactorSource.position, interactorSource.forward);
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
-                if (interactObj != currentInteractable)
+                // Skip if it's the same interactable
+                if (interactObj == currentInteractable) 
                 {
-                    previousInteractable = currentInteractable;
-                    uiManager.UpdateInteractionDescription(interactObj.GetDescription());
-                    currentInteractable = interactObj;
+                    // Only enable outline if the object is still valid
+                    if (IsInteractableValid(currentInteractable))
+                    {
+                        currentInteractable.EnableOutline();
+                    }
+                    return;
                 }
-                previousInteractable?.DisableOutline();
-                interactObj.EnableOutline();
+
+                // if it's not the same
+                // Clear previous interactable if valid
+                if (IsInteractableValid(currentInteractable))
+                {
+                    currentInteractable.DisableOutline();
+                }
+
+                // Set new interactable
+                currentInteractable = interactObj;
+                uiManager.UpdateInteractionDescription(interactObj.GetDescription());
+                
+                // Enable outline only if valid
+                if (IsInteractableValid(currentInteractable))
+                {
+                    currentInteractable.EnableOutline();
+                }
                 return;
             }
         }
         
-        if (currentInteractable != null)
+        // Clear current interactable if nothing is hit
+        if (IsInteractableValid(currentInteractable))
         {
             currentInteractable.DisableOutline();
             uiManager.UpdateInteractionDescription("");
-            currentInteractable = null;
         }
+        currentInteractable = null;
     }
 
     private void TryInteract(InputAction.CallbackContext context)
@@ -85,6 +104,12 @@ public class Interactor : MonoBehaviour
                 interactObj.Interact();
             }
         }
+    }
+    
+    private bool IsInteractableValid(IInteractable interactable)
+    {
+        // Check if the interface reference points to a destroyed Unity object
+        return interactable != null && !interactable.Equals(null);
     }
     
 }

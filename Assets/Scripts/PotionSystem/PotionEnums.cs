@@ -29,5 +29,4 @@ public enum PotionEffect
     Velocipastor,
     Childification,
     Reset
-    
 }

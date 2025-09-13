@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using NaughtyAttributes;
 
 public class PotionDiscovery : MonoBehaviour
 {
     public static PotionDiscovery Instance;
     
     private HashSet<PotionEffect> discoveredEffects = new HashSet<PotionEffect>();
+
+    public UnityEvent AllPotionsDiscovered;
 
     private void Awake()
     {
@@ -51,6 +55,8 @@ public class PotionDiscovery : MonoBehaviour
         }
         PlayerPrefs.SetString("DiscoveredPotionEffects", string.Join(",", effects));
         PlayerPrefs.Save();
+        
+        
     }
     
     public bool IsEffectDiscovered(PotionEffect effect)
@@ -65,6 +71,22 @@ public class PotionDiscovery : MonoBehaviour
             discoveredEffects.Add(effect);
             SaveDiscoveredEffects();
             PotionBook.Instance.RevealRecipe(effect);
+            
+            int numberOfPotionEffects = Enum.GetNames(typeof(PotionEffect)).Length - 1; // -1 because of Reset enum
+            int numberOfDiscoveredEffect = discoveredEffects.Count;
+
+            if (numberOfDiscoveredEffect == numberOfPotionEffects)
+            {
+                Debug.LogWarning("Discovered All Effect");
+                AllPotionsDiscovered?.Invoke();
+            }
         }
     }
+    
+    [Button("Setup For All Recipes Discovery, Make A Slop Potion")]
+    private void SetupForAllDiscovery()
+    {
+        PlayerPrefs.SetString("DiscoveredPotionEffects", "Goblinization,Combustion,Pregnancy,ExtraLimb,Tentacles,Furrysation,Zombification,Gelatin,Velocipastor,Childification");
+    }
+    
 }

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//TODO: Make it function with new input system
 public class GlobalCursorManager : MonoBehaviour
 {
     [Header("Cursor Textures")]
@@ -30,7 +31,7 @@ public class GlobalCursorManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         _clickAction.action.Enable();
         _clickAction.action.started += OnClickStarted;
@@ -42,7 +43,7 @@ public class GlobalCursorManager : MonoBehaviour
         _clickAction.action.started -= OnClickStarted;
         _clickAction.action.canceled -= OnClickCanceled;
         _clickAction.action.Disable();
-    }
+    }*/
 
     void Start()
     {
@@ -51,14 +52,40 @@ public class GlobalCursorManager : MonoBehaviour
             Cursor.SetCursor(normalCursor, hotspot, cursorMode);
         }
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            OnClickStarted();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            OnClickCanceled();
+        }
+    }
+
     void OnClickStarted(InputAction.CallbackContext context)
+    {
+        if (clickedCursor != null)
+            Cursor.SetCursor(clickedCursor, hotspot, cursorMode);
+        Debug.Log("Clicked");
+    }
+    
+    void OnClickCanceled(InputAction.CallbackContext context)
+    {
+        if (normalCursor != null)
+            Cursor.SetCursor(normalCursor, hotspot, cursorMode);
+    }
+    
+    void OnClickStarted()
     {
         if (clickedCursor != null)
             Cursor.SetCursor(clickedCursor, hotspot, cursorMode);
     }
     
-    void OnClickCanceled(InputAction.CallbackContext context)
+    void OnClickCanceled()
     {
         if (normalCursor != null)
             Cursor.SetCursor(normalCursor, hotspot, cursorMode);

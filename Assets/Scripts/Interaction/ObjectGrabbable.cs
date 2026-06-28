@@ -1,26 +1,23 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ObjectGrabbable : MonoBehaviour, IInteractable
+public class ObjectGrabbable : InteractableBase
 {
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
     [SerializeField] private float lerpSpeed = 20f;
     [SerializeField] private float rotationLerpSpeed = 15f;
-    
+
     private bool isGrabbed;
     private Vector3 targetPosition;
-    
+
     private Transform cameraTransform;
 
     private bool canGrab = true;
 
-    [Header("Outline")]
-    [SerializeField] private Outline outline;
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         objectRigidbody = GetComponent<Rigidbody>();
         objectRigidbody.excludeLayers = LayerMask.GetMask("Player");
         objectRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
@@ -32,8 +29,6 @@ public class ObjectGrabbable : MonoBehaviour, IInteractable
         {
             Debug.LogWarning("Ingredient doesn't have the layer needed to work", gameObject);
         }
-        
-        DisableOutline();
     }
 
     public void DisableGrabbing() { canGrab = false;}
@@ -92,28 +87,5 @@ public class ObjectGrabbable : MonoBehaviour, IInteractable
         }
         
         objectRigidbody.angularVelocity = Vector3.zero;
-    }
-
-    
-    // interactable stuff
-    
-    public void Interact()
-    {
-        // nothing happens
-    }
-
-    public string GetDescription()
-    {
-        return "";
-    }
-
-    public void EnableOutline()
-    {
-        outline.enabled = true;
-    }
-
-    public void DisableOutline()
-    {
-        outline.enabled = false;
     }
 }

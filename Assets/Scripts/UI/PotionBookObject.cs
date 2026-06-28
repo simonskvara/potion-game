@@ -1,12 +1,6 @@
-using UnityEngine;
-
-public class PotionBookObject : MonoBehaviour, IInteractable
+public class PotionBookObject : InteractableBase
 {
-    [SerializeField] private string objectNameDescription;
-
-    [Header("Outline")] [SerializeField] private Outline outline;
-    
-    public void Interact()
+    public override void Interact()
     {
         if (PotionBook.Instance.IsOpen)
         {
@@ -16,20 +10,5 @@ public class PotionBookObject : MonoBehaviour, IInteractable
         {
             PotionBook.Instance.OpenBook();
         }
-    }
-
-    public string GetDescription()
-    {
-        return objectNameDescription;
-    }
-
-    public void EnableOutline()
-    {
-        outline.enabled = true;
-    }
-
-    public void DisableOutline()
-    {
-        outline.enabled = false;
     }
 }

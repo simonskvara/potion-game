@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8789a3a893ec1d74d81c33659313cf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectNameDescription: Potion Book
+  description: Potion Book
   outline: {fileID: 3210873618960315327}
 --- !u!114 &3210873618960315327
 MonoBehaviour:

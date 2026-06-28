@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TestSubject : MonoBehaviour, IInteractable
+public class TestSubject : InteractableBase
 {
     [Header("Subject models, please don't touch")]
     [SerializeField] private GameObject baseModel;
@@ -10,8 +10,7 @@ public class TestSubject : MonoBehaviour, IInteractable
     
     [Header("Other")]
     [SerializeField] private Animator transformationLight;
-    [SerializeField] private string description;
-    
+
     private bool isTransformed;
 
     [Header("Sound")]
@@ -36,10 +35,10 @@ public class TestSubject : MonoBehaviour, IInteractable
     public UnityEvent velocipastorEvent;
     public UnityEvent childificationEvent;
     
-    public void Interact()
+    public override void Interact()
     {
         if (isTransformed) return;
-        
+
         PlayVoiceLine();
     }
 
@@ -259,30 +258,6 @@ public class TestSubject : MonoBehaviour, IInteractable
         resetEvent?.Invoke();
     }
     
-
-    #endregion
-    
-    
-    
-    
-    
-    
-    #region InterfaceStuff
-
-    public string GetDescription()
-    {
-        return description;
-    }
-
-    public void EnableOutline()
-    {
-        
-    }
-
-    public void DisableOutline()
-    {
-        
-    }
 
     #endregion
 }

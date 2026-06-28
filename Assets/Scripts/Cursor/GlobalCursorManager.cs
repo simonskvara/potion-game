@@ -14,8 +14,6 @@ public class GlobalCursorManager : MonoBehaviour
     public CursorMode cursorMode = CursorMode.Auto;
     
     private static GlobalCursorManager instance;
-
-    [SerializeField] private InputActionReference _clickAction;
     
     void Awake()
     {
@@ -31,20 +29,6 @@ public class GlobalCursorManager : MonoBehaviour
         }
     }
 
-    /*private void OnEnable()
-    {
-        _clickAction.action.Enable();
-        _clickAction.action.started += OnClickStarted;
-        _clickAction.action.canceled += OnClickCanceled;
-    }
-
-    private void OnDisable()
-    {
-        _clickAction.action.started -= OnClickStarted;
-        _clickAction.action.canceled -= OnClickCanceled;
-        _clickAction.action.Disable();
-    }*/
-
     void Start()
     {
         if (normalCursor != null)
@@ -55,28 +39,15 @@ public class GlobalCursorManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             OnClickStarted();
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             OnClickCanceled();
         }
-    }
-
-    void OnClickStarted(InputAction.CallbackContext context)
-    {
-        if (clickedCursor != null)
-            Cursor.SetCursor(clickedCursor, hotspot, cursorMode);
-        Debug.Log("Clicked");
-    }
-    
-    void OnClickCanceled(InputAction.CallbackContext context)
-    {
-        if (normalCursor != null)
-            Cursor.SetCursor(normalCursor, hotspot, cursorMode);
     }
     
     void OnClickStarted()

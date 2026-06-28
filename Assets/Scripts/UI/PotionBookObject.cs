@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PotionBoookObject : MonoBehaviour, IInteractable
+public class PotionBookObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private string objectNameDescription;
 

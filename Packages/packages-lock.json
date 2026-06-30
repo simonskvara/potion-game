@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.simonskvara.skv_toolkit": {
-      "version": "https://github.com/simonskvara/skv_toolkit.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "8a2fb6d409eaa6e45fd1a4af02ec744bd6dddd9a"
-    },
     "com.unity.2d.animation": {
       "version": "13.0.5",
       "depth": 1,

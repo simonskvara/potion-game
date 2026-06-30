@@ -13,23 +13,63 @@ MonoBehaviour:
   m_Name: Recipes
   m_EditorClassIdentifier: 
   recipes:
-  - ingredients: 030000000100000005000000
+  - ingredients:
+    - {fileID: 11400000, guid: 943e669fa5861474b9d051fcea879c87, type: 2}
+    - {fileID: 11400000, guid: 0da6879399f6e89499c488fec58ac473, type: 2}
+    - {fileID: 11400000, guid: 4f633c217befdd24aa24eb8e7e1ae7fc, type: 2}
     resultEffect: 1
-  - ingredients: 060000000900000002000000
+    potionEffect: {fileID: 11400000, guid: b6c150b8aec710c469ab384902cf11cf, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: a0bd51c1ceefc5944aa069b49537451c, type: 2}
+    - {fileID: 11400000, guid: 039771e3802f670419daf523785accf3, type: 2}
+    - {fileID: 11400000, guid: d19b3a337c6a59641a5a7397dde1ea17, type: 2}
     resultEffect: 2
-  - ingredients: 040000000800000000000000
+    potionEffect: {fileID: 11400000, guid: f628e4d846d18c34eb1cf43a9d59b2cd, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: 799660ca0e8d6aa4fb3bdec20c476094, type: 2}
+    - {fileID: 11400000, guid: c35ea7fb4ab77b84bb79ecf9041a2667, type: 2}
+    - {fileID: 11400000, guid: aeffe9c4eb4bed94aa3f2dd67a92ea98, type: 2}
     resultEffect: 3
-  - ingredients: 010000000a00000009000000
+    potionEffect: {fileID: 11400000, guid: 190bf05feab27ae44b73a376ab191741, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: 4f633c217befdd24aa24eb8e7e1ae7fc, type: 2}
+    - {fileID: 11400000, guid: e646b3b67e6a8164794a33261c39faf9, type: 2}
+    - {fileID: 11400000, guid: a0bd51c1ceefc5944aa069b49537451c, type: 2}
     resultEffect: 4
-  - ingredients: 080000000700000000000000
+    potionEffect: {fileID: 11400000, guid: 86d1b0fd6ed505c43a4da7a8924730c8, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: 799660ca0e8d6aa4fb3bdec20c476094, type: 2}
+    - {fileID: 11400000, guid: 02d8ae14274e11c45b7cfa82d7aac679, type: 2}
+    - {fileID: 11400000, guid: c35ea7fb4ab77b84bb79ecf9041a2667, type: 2}
     resultEffect: 5
-  - ingredients: 020000000400000009000000
+    potionEffect: {fileID: 11400000, guid: d06a8663cf3116340bc76bf714526b02, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: 039771e3802f670419daf523785accf3, type: 2}
+    - {fileID: 11400000, guid: a0bd51c1ceefc5944aa069b49537451c, type: 2}
+    - {fileID: 11400000, guid: aeffe9c4eb4bed94aa3f2dd67a92ea98, type: 2}
     resultEffect: 6
-  - ingredients: 060000000a00000002000000
+    potionEffect: {fileID: 11400000, guid: d25892ed8e92ec340bf949d5f5e98fab, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: d19b3a337c6a59641a5a7397dde1ea17, type: 2}
+    - {fileID: 11400000, guid: e646b3b67e6a8164794a33261c39faf9, type: 2}
+    - {fileID: 11400000, guid: 039771e3802f670419daf523785accf3, type: 2}
     resultEffect: 7
-  - ingredients: 050000000700000000000000
+    potionEffect: {fileID: 11400000, guid: 557e28e6b9ac8cd4b9c15e34cdf32b88, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: 943e669fa5861474b9d051fcea879c87, type: 2}
+    - {fileID: 11400000, guid: 02d8ae14274e11c45b7cfa82d7aac679, type: 2}
+    - {fileID: 11400000, guid: c35ea7fb4ab77b84bb79ecf9041a2667, type: 2}
     resultEffect: 8
-  - ingredients: 030000000800000009000000
+    potionEffect: {fileID: 11400000, guid: d17dc939ec6364f47a6107f92c50e15a, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: 0da6879399f6e89499c488fec58ac473, type: 2}
+    - {fileID: 11400000, guid: 799660ca0e8d6aa4fb3bdec20c476094, type: 2}
+    - {fileID: 11400000, guid: a0bd51c1ceefc5944aa069b49537451c, type: 2}
     resultEffect: 9
-  - ingredients: 090000000a00000004000000
+    potionEffect: {fileID: 11400000, guid: 27a0a083bd55e4045965019df49fecac, type: 2}
+  - ingredients:
+    - {fileID: 11400000, guid: aeffe9c4eb4bed94aa3f2dd67a92ea98, type: 2}
+    - {fileID: 11400000, guid: e646b3b67e6a8164794a33261c39faf9, type: 2}
+    - {fileID: 11400000, guid: a0bd51c1ceefc5944aa069b49537451c, type: 2}
     resultEffect: 10
+    potionEffect: {fileID: 11400000, guid: f67ba5c1c5e879b40a1b71c5b42c3a42, type: 2}

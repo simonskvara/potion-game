@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effect: 11
+  potionEffect: {fileID: 11400000, guid: 62ee41065d9755c45b5a1cc99f2b3d0a, type: 2}
 --- !u!114 &5576853782169465802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04938ab52ebd8ec4d8a748304474d52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: 
+  outline: {fileID: 101668225738668410}
   lerpSpeed: 20
   rotationLerpSpeed: 15
-  outline: {fileID: 101668225738668410}
 --- !u!54 &2916421850399291115
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -72,10 +74,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3750269335209664037}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -174,6 +176,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -195,9 +199,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &6950600622395042269
 PrefabInstance:

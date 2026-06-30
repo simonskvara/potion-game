@@ -9,20 +9,16 @@ public class PotionBook : MonoBehaviour
 {
     public static PotionBook Instance;
     
-    
-
     [SerializeField] private GameObject bookObject;
-
-    [SerializeField] private InputActionReference cancelInput;
     
     public bool IsOpen { get; private set; } = false;
 
     private PlayerCam playerCam;
     private PlayerMovement playerMovement;
     
-    
-    
-    
+    private InputSystem_Actions inputActions;
+
+
     [System.Serializable]
     public class RecipeUI
     {
@@ -45,18 +41,20 @@ public class PotionBook : MonoBehaviour
 
         playerCam = FindAnyObjectByType<PlayerCam>();
         playerMovement = FindAnyObjectByType<PlayerMovement>();
+
+        inputActions = new InputSystem_Actions();
     }
 
     private void OnEnable()
     {
-        cancelInput.action.Enable();
-        cancelInput.action.started += CloseBook;
+        inputActions.Enable();
+        inputActions.UI.Cancel.performed += CloseBook;
     }
 
     private void OnDisable()
     {
-        cancelInput.action.started -= CloseBook;
-        cancelInput.action.Enable();
+        inputActions.UI.Cancel.performed -= CloseBook;
+        inputActions.Disable();
     }
 
     private void Start()

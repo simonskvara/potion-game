@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using NaughtyAttributes;
@@ -7,8 +7,11 @@ using NaughtyAttributes;
 public class PotionDiscovery : MonoBehaviour
 {
     public static PotionDiscovery Instance;
-    
-    private HashSet<PotionEffect> discoveredEffects = new HashSet<PotionEffect>();
+
+    [Tooltip("Source of truth for the set of discoverable effects.")]
+    [SerializeField] private Recipes recipesSO;
+
+    private List<string> discoveredEffects = new List<string>();
 
     public UnityEvent AllPotionsDiscovered;
 
@@ -24,55 +27,29 @@ public class PotionDiscovery : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     private void LoadDiscoveredEffects()
     {
-        // Load from PlayerPrefs
-        string discoveredKey = "DiscoveredPotionEffects";
-        if (PlayerPrefs.HasKey(discoveredKey))
-        {
-            string data = PlayerPrefs.GetString(discoveredKey);
-            if (!string.IsNullOrEmpty(data))
-            {
-                string[] effects = data.Split(',');
-                foreach (string effect in effects)
-                {
-                    if (System.Enum.TryParse(effect, out PotionEffect parsedEffect))
-                    {
-                        discoveredEffects.Add(parsedEffect);
-                    }
-                }
-            }
-        }
+        discoveredEffects = SaveManager.Data.UnlockedPotions;
     }
-    
-    private void SaveDiscoveredEffects()
-    {
-        List<string> effects = new List<string>();
-        foreach (PotionEffect effect in discoveredEffects)
-        {
-            effects.Add(effect.ToString());
-        }
-        PlayerPrefs.SetString("DiscoveredPotionEffects", string.Join(",", effects));
-        PlayerPrefs.Save();
-        
-        
-    }
-    
+
     public bool IsEffectDiscovered(PotionEffect effect)
     {
-        return discoveredEffects.Contains(effect);
+        return discoveredEffects.Contains(effect.PotionEffectID);
     }
-    
+
     public void DiscoverEffect(PotionEffect effect)
     {
-        if (!discoveredEffects.Contains(effect))
+        if (!discoveredEffects.Contains(effect.PotionEffectID))
         {
-            discoveredEffects.Add(effect);
-            SaveDiscoveredEffects();
-            PotionBook.Instance.RevealRecipe(effect);
-            
-            int numberOfPotionEffects = Enum.GetNames(typeof(PotionEffect)).Length - 1; // -1 because of Reset enum
+            discoveredEffects.Add(effect.PotionEffectID);
+            SaveManager.Data.UnlockedPotions = discoveredEffects;
+            SaveManager.Save();
+
+            // Book UI is optional for now — guard so discovery/save works without it.
+            if (PotionBook.Instance != null) PotionBook.Instance.RevealRecipe(effect);
+
+            int numberOfPotionEffects = recipesSO.DiscoverableEffects().Count();
             int numberOfDiscoveredEffect = discoveredEffects.Count;
 
             if (numberOfDiscoveredEffect == numberOfPotionEffects)
@@ -82,11 +59,17 @@ public class PotionDiscovery : MonoBehaviour
             }
         }
     }
-    
-    [Button("Setup For All Recipes Discovery, Make A Slop Potion")]
+
+    [Button("Discover All Effects")]
     private void SetupForAllDiscovery()
     {
-        PlayerPrefs.SetString("DiscoveredPotionEffects", "Goblinization,Combustion,Pregnancy,ExtraLimb,Tentacles,Furrysation,Zombification,Gelatin,Velocipastor,Childification");
+        foreach (PotionEffect effect in recipesSO.DiscoverableEffects())
+        {
+            if (!SaveManager.Data.UnlockedPotions.Contains(effect.PotionEffectID))
+            {
+                SaveManager.Data.UnlockedPotions.Add(effect.PotionEffectID);
+            }
+        }
+        SaveManager.Save();
     }
-    
 }

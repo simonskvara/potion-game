@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0230d90fa20db489e3fdcbcf30ae8c, type: 3}
+  m_Name: Tentacles
+  m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
+  potionEffectID: tentacles
+  displayName: 
+  icon: {fileID: 0}
+  description: 
+  kind: 0
+  transformVoiceLine: {fileID: 8300000, guid: dc9cb6268381890409dd4e8ad193ccc7, type: 3}
+  playLight: 1
+  onApply: []
+  references:
+    version: 2
+    RefIds: []

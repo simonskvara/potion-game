@@ -84,6 +84,7 @@ MonoBehaviour:
   potionSpawnPoint: {fileID: 2778554841000897184}
   potionPrefab: {fileID: 3750269335209664037, guid: f303278fa3ec414418c56562205b4485, type: 3}
   brewingTime: 2
+  noneEffect: {fileID: 11400000, guid: 9ac58e15458c25841889e27b88a0350b, type: 2}
   ingredientAdded:
     m_PersistentCalls:
       m_Calls:

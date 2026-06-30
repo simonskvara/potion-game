@@ -5,12 +5,19 @@ using UnityEngine.Events;
 
 public class Cauldron : MonoBehaviour
 {
-    [SerializeField] private Recipes recipesSO;
+    [SerializeField] 
+    private Recipes recipesSO;
     
-    [SerializeField] private Transform potionSpawnPoint;
-    [SerializeField] private GameObject potionPrefab;
+    [SerializeField] 
+    private Transform potionSpawnPoint;
+    [SerializeField] 
+    private GameObject potionPrefab;
 
-    [SerializeField] private float brewingTime;
+    [SerializeField] 
+    private float brewingTime;
+
+    [SerializeField]
+    private PotionEffect noneEffect;
     
     private List<Ingredient> currentIngredients = new List<Ingredient>();
 
@@ -41,10 +48,15 @@ public class Cauldron : MonoBehaviour
     
     private IEnumerator BrewPotion()
     {
+        PotionEffect effect = FindMatchingEffect();
+
         yield return new WaitForSeconds(brewingTime); // Brewing delay
         
-        PotionEffect effect = FindMatchingEffect();
-        SpawnPotion(effect);
+        if (effect == null)
+            SpawnPotion(noneEffect);
+        else
+            SpawnPotion(effect);
+
         currentIngredients.Clear();
         potionBrewEnded?.Invoke();
 
@@ -61,10 +73,10 @@ public class Cauldron : MonoBehaviour
         {
             if (recipe.MatchesRecipe(currentIngredients))
             {
-                return recipe.resultEffect;
+                return recipe.ResultPotionEffect;
             }
         }
-        return PotionEffect.None;
+        return null;
     }
     
     private void SpawnPotion(PotionEffect effect)

@@ -4,37 +4,63 @@ using UnityEngine.Events;
 
 public class TestSubject : InteractableBase
 {
+    [System.Serializable]
+    public class EffectModel
+    {
+        [Tooltip("Optional label for inspector")]
+        public string label;
+        [Tooltip("The potion effect this model represents.")]
+        public PotionEffect effect;
+        [Tooltip("The model GameObject (child of the subject) shown for this effect.")]
+        public GameObject model;
+        [Tooltip("Optional escape hatch for scene-specific wiring that can't live on the PotionEffect asset.")]
+        public UnityEvent onApply;
+    }
+
     [Header("Subject models, please don't touch")]
     [SerializeField] private GameObject baseModel;
-    [SerializeField] private GameObject[] subjectModels;
-    
+    [Tooltip("Maps each transform PotionEffect to the model GameObject it activates.")]
+    [SerializeField] private List<EffectModel> effectModels = new List<EffectModel>();
+
     [Header("Other")]
     [SerializeField] private Animator transformationLight;
 
     private bool isTransformed;
 
     [Header("Sound")]
+    [Tooltip("Plays voice lines (interaction + transform reactions).")]
     [SerializeField] private AudioSource audioSource;
+    [Tooltip("Plays effect SFX (explosions, etc.) so they don't cut off voice lines.")]
+    [SerializeField] private AudioSource effectAudioSource;
     [SerializeField] private AudioClip[] priestVoiceLines;
-    
+
+    [Header("VFX")]
+    [Tooltip("Spawned VFX are parented here. Falls back to this transform if unset.")]
+    [SerializeField] private Transform vfxAnchor;
+
+    [Header("Unity Events")]
+    [Tooltip("Shared flourish played for every transformation (light flash, etc.).")]
+    public UnityEvent transformationEvent;
+
     private List<int> _voiceLinePlayOrder;
     private int _currentVoiceLineIndex;
 
-    [Header("Unity Events")] 
-    public UnityEvent transformationEvent;
-    public UnityEvent resetEvent;
-    public UnityEvent nothingHappensEvent;
-    public UnityEvent goblinizationEvent;
-    public UnityEvent combustionEvent;
-    public UnityEvent pregnancyEvent;
-    public UnityEvent extraLimbEvent;
-    public UnityEvent tentaclesEvent;
-    public UnityEvent furrysationEvent;
-    public UnityEvent zombificationEvent;
-    public UnityEvent gelatinEvent;
-    public UnityEvent velocipastorEvent;
-    public UnityEvent childificationEvent;
-    
+    private Dictionary<PotionEffect, EffectModel> _modelsByEffect;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _modelsByEffect = new Dictionary<PotionEffect, EffectModel>();
+        foreach (EffectModel entry in effectModels)
+        {
+            if (entry.effect != null && !_modelsByEffect.ContainsKey(entry.effect))
+            {
+                _modelsByEffect.Add(entry.effect, entry);
+            }
+        }
+    }
+
     public override void Interact()
     {
         if (isTransformed) return;
@@ -44,19 +70,21 @@ public class TestSubject : InteractableBase
 
     public void ApplyEffect(PotionEffect effect)
     {
-        if (isTransformed && effect != PotionEffect.Reset) return;
-        
-        if (effect != PotionEffect.Reset)
+        if (effect == null) return;
+
+        // Block re-applying while transformed, except for a Reset.
+        if (isTransformed && effect.Kind != PotionEffectKind.Reset) return;
+
+        switch (effect.Kind)
         {
-            PotionDiscovery.Instance.DiscoverEffect(effect);
-        }
-        
-        switch (effect)
-        {
-            case PotionEffect.Reset:
-                ResetSubject();
+            case PotionEffectKind.Reset:
+                ResetSubject(effect);
                 break;
-            
+
+            case PotionEffectKind.Nothing:
+                NothingHappens(effect);
+                break;
+
             default:
                 ApplyTransformation(effect);
                 break;
@@ -66,75 +94,105 @@ public class TestSubject : InteractableBase
     private void ApplyTransformation(PotionEffect effect)
     {
         isTransformed = true;
-        
-        Debug.Log("apply transformation");
-        baseModel.SetActive(false);
-        foreach (GameObject model in subjectModels)
-        {
-            if (model) model.SetActive(false);
-        }
-        
-        int effectIndex = (int)effect;
-        if (subjectModels.Length > effectIndex && subjectModels[effectIndex] != null)
-        {
-            subjectModels[effectIndex].SetActive(true);
-        }
-        
-        transformationEvent?.Invoke();
 
-        if (effect != PotionEffect.None)
+        HideAllModels();
+
+        if (_modelsByEffect.TryGetValue(effect, out EffectModel entry) && entry.model != null)
+        {
+            entry.model.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning($"TestSubject has no model mapped for effect '{effect.PotionEffectID}'.", this);
+        }
+
+        if (effect.PlayLight && transformationLight != null)
         {
             transformationLight.SetTrigger("LightOn");
         }
-        
-        switch (effect)
+
+        transformationEvent?.Invoke();
+
+        RunPresentation(effect);
+
+        PotionDiscovery.Instance?.DiscoverEffect(effect);
+    }
+
+    private void NothingHappens(PotionEffect effect)
+    {
+        // Subject is unchanged; just play the slop reaction.
+        isTransformed = false;
+        RunPresentation(effect);
+    }
+
+    private void ResetSubject(PotionEffect effect)
+    {
+        HideAllModels();
+
+        if (transformationLight != null) transformationLight.SetTrigger("LightOff");
+        if (baseModel != null) baseModel.SetActive(true);
+
+        isTransformed = false;
+
+        RunPresentation(effect);
+    }
+
+    /// <summary>Plays the effect's voice line, runs its behaviour list, and fires the optional scene hook.</summary>
+    private void RunPresentation(PotionEffect effect)
+    {
+        if (effect.TransformVoiceLine != null)
         {
-            case PotionEffect.Goblinization:
-                Goblinization();
-                break;
-                
-            case PotionEffect.Combustion:
-                Combustion();
-                break;
-                
-            case PotionEffect.Pregnancy:
-                Pregnancy();
-                break;
-            
-            case PotionEffect.ExtraLimb:
-                ExtraLimb();
-                break;
-            
-            case PotionEffect.Tentacles:
-                Tentacles();
-                break;
-            
-            case PotionEffect.Furrysation:
-                Furrysation();
-                break;
-            
-            case PotionEffect.Zombification:
-                Zombification();
-                break;
-                
-            case PotionEffect.Gelatin:
-                Gelatin();
-                break;
-            
-            case PotionEffect.Velocipastor:
-                Velocipastor();
-                break;
-            
-            case PotionEffect.Childification:
-                Childification();
-                break;
-            
-            default:
-                NothingHappens();
-                break;
+            PlaySound(effect.TransformVoiceLine);
+        }
+
+        foreach (EffectBehaviour behaviour in effect.OnApply)
+        {
+            behaviour?.Apply(this);
+        }
+
+        if (_modelsByEffect.TryGetValue(effect, out EffectModel entry))
+        {
+            entry.onApply?.Invoke();
         }
     }
-    
+
+    private void HideAllModels()
+    {
+        if (baseModel != null) baseModel.SetActive(false);
+
+        foreach (EffectModel entry in effectModels)
+        {
+            if (entry.model != null) entry.model.SetActive(false);
+        }
+    }
+
+    #region Behaviour hooks
+
+    /// <summary>Plays a one-shot effect sound. Used by <see cref="EffectBehaviour"/> blocks.</summary>
+    public void PlayOneShot(AudioClip clip, float volume = 1f)
+    {
+        if (clip == null) return;
+
+        AudioSource source = effectAudioSource != null ? effectAudioSource : audioSource;
+        if (source != null) source.PlayOneShot(clip, volume);
+    }
+
+    /// <summary>Spawns a VFX prefab at the vfx anchor. Used by <see cref="EffectBehaviour"/> blocks.</summary>
+    public GameObject SpawnVfx(GameObject prefab, float lifetime = 5f)
+    {
+        if (prefab == null) return null;
+
+        Transform anchor = vfxAnchor != null ? vfxAnchor : transform;
+        GameObject instance = Instantiate(prefab, anchor.position, anchor.rotation, anchor);
+
+        if (lifetime > 0f) Destroy(instance, lifetime);
+        return instance;
+    }
+
+    #endregion
+
+    #region Voice lines
+
     private void InitializeVoiceLinePlayOrder()
     {
         _voiceLinePlayOrder = new List<int>();
@@ -152,7 +210,7 @@ public class TestSubject : InteractableBase
             (_voiceLinePlayOrder[i], _voiceLinePlayOrder[randomIndex]) = (_voiceLinePlayOrder[randomIndex], _voiceLinePlayOrder[i]);
         }
     }
-    
+
     private void PlayVoiceLine()
     {
         if (priestVoiceLines == null || priestVoiceLines.Length == 0)
@@ -178,86 +236,12 @@ public class TestSubject : InteractableBase
 
     private void PlaySound(AudioClip sound)
     {
+        if (audioSource == null) return;
+
         audioSource.Stop();
-        
         audioSource.clip = sound;
         audioSource.Play();
     }
-    
-    #region Effects
-
-    private void NothingHappens()
-    {
-        isTransformed = false;
-        nothingHappensEvent?.Invoke();
-    }
-
-    private void Goblinization()
-    {
-        goblinizationEvent?.Invoke();
-    }
-
-    private void Combustion()
-    {
-        combustionEvent?.Invoke();
-    }
-
-    private void Pregnancy()
-    {
-        pregnancyEvent?.Invoke();
-    }
-
-    private void ExtraLimb()
-    {
-        extraLimbEvent?.Invoke();
-    }
-
-    private void Tentacles()
-    {
-        tentaclesEvent?.Invoke();
-    }
-
-    private void Furrysation()
-    {
-        furrysationEvent?.Invoke();
-    }
-
-    private void Zombification()
-    {
-        zombificationEvent?.Invoke();
-    }
-
-    private void Gelatin()
-    {
-        gelatinEvent?.Invoke();
-    }
-
-    private void Velocipastor()
-    {
-        velocipastorEvent?.Invoke();   
-    }
-
-    private void Childification()
-    {
-        childificationEvent?.Invoke();
-    }
-    
-    private void ResetSubject()
-    {
-        foreach (GameObject model in subjectModels)
-        {
-            if (model) model.SetActive(false);
-        }
-        
-        transformationLight.SetTrigger("LightOff");
-        
-        baseModel.SetActive(true);
-        
-        isTransformed = false;
-        
-        resetEvent?.Invoke();
-    }
-    
 
     #endregion
 }

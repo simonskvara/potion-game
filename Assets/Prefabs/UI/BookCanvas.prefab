@@ -117,27 +117,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookObject: {fileID: 6722293590560042472}
   recipeUIs:
-  - effect: 1
+  - effect: {fileID: 11400000, guid: b6c150b8aec710c469ab384902cf11cf, type: 2}
     cover: {fileID: 4953438157699568966}
-  - effect: 2
+  - effect: {fileID: 11400000, guid: f628e4d846d18c34eb1cf43a9d59b2cd, type: 2}
     cover: {fileID: 1603433252306188916}
-  - effect: 3
+  - effect: {fileID: 11400000, guid: 190bf05feab27ae44b73a376ab191741, type: 2}
     cover: {fileID: 7011827668466444484}
-  - effect: 4
+  - effect: {fileID: 11400000, guid: 86d1b0fd6ed505c43a4da7a8924730c8, type: 2}
     cover: {fileID: 6126601634428091327}
-  - effect: 5
+  - effect: {fileID: 11400000, guid: d06a8663cf3116340bc76bf714526b02, type: 2}
     cover: {fileID: 700234172406212076}
-  - effect: 6
+  - effect: {fileID: 11400000, guid: d25892ed8e92ec340bf949d5f5e98fab, type: 2}
     cover: {fileID: 1077558315693032190}
-  - effect: 7
+  - effect: {fileID: 11400000, guid: 557e28e6b9ac8cd4b9c15e34cdf32b88, type: 2}
     cover: {fileID: 7482703680226410074}
-  - effect: 8
+  - effect: {fileID: 11400000, guid: d17dc939ec6364f47a6107f92c50e15a, type: 2}
     cover: {fileID: 8432279461388931354}
-  - effect: 9
+  - effect: {fileID: 11400000, guid: 27a0a083bd55e4045965019df49fecac, type: 2}
     cover: {fileID: 5365432218335136005}
-  - effect: 10
+  - effect: {fileID: 11400000, guid: f67ba5c1c5e879b40a1b71c5b42c3a42, type: 2}
     cover: {fileID: 4930114236461749336}
-  - effect: 0
+  - effect: {fileID: 11400000, guid: 9ac58e15458c25841889e27b88a0350b, type: 2}
     cover: {fileID: 8547510514801328866}
 --- !u!1001 &8637098228470058811
 PrefabInstance:

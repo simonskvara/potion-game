@@ -4,7 +4,10 @@ public class Settings : MonoBehaviour
 {
     public void ResetPotionRecipes()
     {
-        PlayerPrefs.DeleteKey("DiscoveredPotionEffects");
-        PlayerPrefs.Save();
+        if (SaveManager.Data.UnlockedPotions != null)
+        {
+            SaveManager.Data.UnlockedPotions.Clear();
+            SaveManager.Save();
+        }
     }
 }

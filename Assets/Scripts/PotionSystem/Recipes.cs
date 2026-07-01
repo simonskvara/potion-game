@@ -3,10 +3,13 @@ using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Recipes", menuName = "Potion/Recipes")]
+[CreateAssetMenu(fileName = "Recipes", menuName = "Potions/Recipes")]
 public class Recipes : ScriptableObject
 {
-    public List<PotionRecipe> recipes = new List<PotionRecipe>();
+    public List<PotionRecipe> AllRecipes => recipes;
+
+    [SerializeField]
+    private List<PotionRecipe> recipes = new List<PotionRecipe>();
 
     /// <summary>
     /// The distinct, player-discoverable effects across all recipes (Transform effects only —
@@ -26,8 +29,10 @@ public class Recipes : ScriptableObject
 public class PotionRecipe
 {
     public PotionEffect ResultPotionEffect => potionEffect;
+    public Ingredient[] Ingredients => ingredients;
 
-    public Ingredient[] ingredients;
+    [SerializeField]
+    private Ingredient[] ingredients;
 
     [BoxGroup("Potion Effect")]
     [SerializeField]

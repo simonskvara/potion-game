@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Vampire's Ashes
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: vampire_ashes
+  ingredientName: Vampire's Ashes

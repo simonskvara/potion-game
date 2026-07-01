@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Tentacles
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: tentacles
-  displayName: 
+  displayName: Creeproot Binding
   icon: {fileID: 0}
-  description: 
+  description: "Where roots entwine with visions blind,\nAnd rot seeps deep through
+    dough and rind,\nLet madness coil and senses drown\u2026\nNew limbs shall writhe
+    from underground."
   kind: 0
   transformVoiceLine: {fileID: 8300000, guid: dc9cb6268381890409dd4e8ad193ccc7, type: 3}
   playLight: 1

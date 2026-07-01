@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Furrysation
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: furry
-  displayName: 
+  displayName: The Wild Veil
   icon: {fileID: 0}
-  description: 
+  description: "A rat\u2019s foul hide, a bone once whole,\nNow stirs beneath the
+    purest soul.\nWhat once was man now claws the floor,\nAnd craves the woods forevermore."
   kind: 0
   transformVoiceLine: {fileID: 8300000, guid: 0c93ed7dfbe7c1b47a249c2eb5ae5c38, type: 3}
   playLight: 1

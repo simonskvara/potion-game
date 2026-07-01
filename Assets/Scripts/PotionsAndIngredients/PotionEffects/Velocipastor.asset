@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Velocipastor
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: velocipastor
-  displayName: 
+  displayName: Divine Predator
   icon: {fileID: 0}
-  description: 
+  description: "From nail\u2019s tread and roots below,\nAdd bone where sacred lifeblood
+    flowed.\nA beast shall rise with holy flame,\nTo hunt, to howl, in God's own
+    name."
   kind: 0
   transformVoiceLine: {fileID: 8300000, guid: fd88c60140b7c7a42b34730792ce5d80, type: 3}
   playLight: 1

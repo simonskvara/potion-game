@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Kings Dung
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: kings_dung
+  ingredientName: King's Dung

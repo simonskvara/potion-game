@@ -69,7 +69,7 @@ public class Cauldron : MonoBehaviour
     
     private PotionEffect FindMatchingEffect()
     {
-        foreach (PotionRecipe recipe in recipesSO.recipes)
+        foreach (PotionRecipe recipe in recipesSO.AllRecipes)
         {
             if (recipe.MatchesRecipe(currentIngredients))
             {

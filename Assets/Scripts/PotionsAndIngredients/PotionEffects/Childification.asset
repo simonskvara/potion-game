@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: Childification
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: child
-  displayName: 
+  displayName: Milktooth Curse
   icon: {fileID: 0}
-  description: 
+  description: 'From sacred horn and skulls once small,
+
+    Mix with bone that knew
+    it all.
+
+    Let time unwind with whispered breath,
+
+    And trade thy years
+    for youth... or death.'
   kind: 0
   transformVoiceLine: {fileID: 8300000, guid: 400530b0e3f04284daa43c0dcba08895, type: 3}
   playLight: 1

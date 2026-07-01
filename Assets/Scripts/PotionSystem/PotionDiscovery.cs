@@ -46,8 +46,7 @@ public class PotionDiscovery : MonoBehaviour
             SaveManager.Data.UnlockedPotions = discoveredEffects;
             SaveManager.Save();
 
-            // Book UI is optional for now — guard so discovery/save works without it.
-            if (PotionBook.Instance != null) PotionBook.Instance.RevealRecipe(effect);
+            
 
             int numberOfPotionEffects = recipesSO.DiscoverableEffects().Count();
             int numberOfDiscoveredEffect = discoveredEffects.Count;

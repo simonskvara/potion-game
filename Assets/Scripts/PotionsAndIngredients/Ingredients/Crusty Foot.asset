@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Crusty Foot
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: crusty_foot
+  ingredientName: Crusty Foot

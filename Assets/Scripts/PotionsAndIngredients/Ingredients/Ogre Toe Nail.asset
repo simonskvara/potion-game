@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Ogre Toe Nail
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: ogre_toe_nail
+  ingredientName: Ogre Toe Nail

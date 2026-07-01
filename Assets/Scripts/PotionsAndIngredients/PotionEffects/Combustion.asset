@@ -13,3 +13,21 @@ MonoBehaviour:
   m_Name: Combustion
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: combustion
+  displayName: Ashes Awaken
+  icon: {fileID: 0}
+  description: 'From cursed bone and vermin dead,
+
+    Stoke the pyre where vampires
+    bled.
+
+    Three remnants dark, with flame aligned.
+
+    One sip, and fire claims
+    the mind.'
+  kind: 0
+  transformVoiceLine: {fileID: 0}
+  playLight: 1
+  onApply: []
+  references:
+    version: 2
+    RefIds: []

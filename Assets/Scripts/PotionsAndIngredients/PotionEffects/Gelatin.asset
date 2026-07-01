@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: Gelatin
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: gelatin
-  displayName: 
+  displayName: The Royal Slop
   icon: {fileID: 0}
-  description: 
+  description: 'A noble waste, a festering crust,
+
+    Add peering eyes that squirm
+    and rust.
+
+    What once had form shall melt away,
+
+    And ooze where shape
+    forgot to stay.'
   kind: 0
   transformVoiceLine: {fileID: 8300000, guid: 54e3949b450227b4c88938961dcf2367, type: 3}
   playLight: 1

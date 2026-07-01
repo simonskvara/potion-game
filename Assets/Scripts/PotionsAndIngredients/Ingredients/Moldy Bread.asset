@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Moldy Bread
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: moldy_bread
+  ingredientName: Moldy Bread

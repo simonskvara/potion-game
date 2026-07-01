@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Bone
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: bone
+  ingredientName: Bone

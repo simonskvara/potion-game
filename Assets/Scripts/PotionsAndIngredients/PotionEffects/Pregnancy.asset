@@ -13,3 +13,15 @@ MonoBehaviour:
   m_Name: Pregnancy
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: pregnancy
+  displayName: Seed of Light
+  icon: {fileID: 0}
+  description: "From forest's grasp and creature's gaze,\nBlend roots with sight
+    from hollowed face.\nA sacred horn shall seal the fate\u2026\nNew life shall
+    bloom, though not from grace"
+  kind: 0
+  transformVoiceLine: {fileID: 8300000, guid: 6aa0f0568a052e4449a4b9bdaa52f93a, type: 3}
+  playLight: 1
+  onApply: []
+  references:
+    version: 2
+    RefIds: []

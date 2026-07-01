@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Unicorn Horn
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: unicorn_head
+  ingredientName: Unicorn Horn

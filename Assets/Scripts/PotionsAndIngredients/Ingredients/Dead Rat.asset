@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Dead Rat
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: dead_rat
+  ingredientName: Dead Rat

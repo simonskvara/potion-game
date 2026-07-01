@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Shrunk Head
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: shrunk_head
+  ingredientName: Shrunk Head

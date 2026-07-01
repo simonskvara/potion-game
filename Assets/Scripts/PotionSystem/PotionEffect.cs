@@ -3,14 +3,11 @@ using UnityEngine;
 
 public enum PotionEffectKind
 {
-    Transform, // changes the subject into a mapped model
-    Reset,     // restores the subject to its base form
-    Nothing    // no transformation (the "slop" / no-recipe result)
+    Transform,
+    Reset,
+    Nothing
 }
 
-// NOTE: intentionally uses only built-in attributes (no NaughtyAttributes). This keeps the
-// asset on Unity's default inspector, which renders the [SerializeReference] onApply list with
-// its native "Add" type picker — the core of the data-driven, no-code effect workflow.
 [CreateAssetMenu(fileName = "PotionEffect", menuName = "Potions/PotionEffect")]
 public class PotionEffect : ScriptableObject
 {
@@ -27,7 +24,7 @@ public class PotionEffect : ScriptableObject
     [SerializeField] private string potionEffectID;
     [SerializeField] private string displayName;
     [SerializeField] private Sprite icon;
-    [SerializeField, TextArea] private string description;
+    [SerializeField, TextArea(4, 10)] private string description;
     [SerializeField] private PotionEffectKind kind = PotionEffectKind.Transform;
 
     [Header("Presentation")]

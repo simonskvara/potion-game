@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   ingredientID: root
+  ingredientName: Roots

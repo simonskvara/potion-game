@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: Zombification
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: zombie
-  displayName: 
+  displayName: Graveborne
   icon: {fileID: 0}
-  description: 
+  description: 'From bloodless dust and silence kept,
+
+    Where shrunken thoughts
+    and vermin slept,
+
+    Stir death once more beneath the skin,
+
+    And wake the
+    flesh to walk again.'
   kind: 0
   transformVoiceLine: {fileID: 8300000, guid: 7e3f5fe3bb2894b489a05530e13fe222, type: 3}
   playLight: 1

@@ -19,6 +19,9 @@ public class PotionBook : MonoBehaviour
     [BoxGroup("Recipes")]
     [SerializeField]
     private Recipes recipes;
+    [BoxGroup("Recipes")]
+    [SerializeField]
+    private PotionEffect nonePotion;
 
     [BoxGroup("Buttons")]
     [SerializeField]
@@ -39,11 +42,19 @@ public class PotionBook : MonoBehaviour
     [BoxGroup("References")]
     [SerializeField]
     private PotionPage potionPage;
+    [BoxGroup("References")]
+    [SerializeField]
+    private IndexPage indexPage;
 
     private PlayerCam playerCam;
     private PlayerMovement playerMovement;
 
-    private int currentPageIndex;
+    private List<PotionEffect> potions;
+
+    private int currentViewIndex;
+    private int indexSpreadCount;
+
+    private int TotalViews => indexSpreadCount + potions.Count;
 
     private InputSystem_Actions inputActions;
 
@@ -62,6 +73,9 @@ public class PotionBook : MonoBehaviour
         playerMovement = FindAnyObjectByType<PlayerMovement>();
 
         inputActions = new InputSystem_Actions();
+
+        potions = recipes.AllRecipes.ConvertAll(recipe => recipe.ResultPotionEffect);
+        potions.Add(nonePotion);
     }
 
     private void OnEnable()
@@ -81,9 +95,10 @@ public class PotionBook : MonoBehaviour
         rightButton.onClick.AddListener(CycleForward);
         leftButton.onClick.AddListener(CycleBackward);
 
-        potionPage.Setup(recipes.AllRecipes[0].ResultPotionEffect);
-        currentPageIndex = 0;
-        UpdateButtonState();
+        indexPage.Build(potions, NavigateToPotion);
+        indexSpreadCount = indexPage.SpreadCount;
+        currentViewIndex = 0;
+        ShowView(currentViewIndex);
     }
 
     public void OpenBook()
@@ -98,9 +113,8 @@ public class PotionBook : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
-        potionPage.Refresh();
-        // refresh the current potion page
+
+        ShowView(currentViewIndex);
     }
 
     public void CloseBook()
@@ -128,24 +142,45 @@ public class PotionBook : MonoBehaviour
 
     private void CycleForward()
     {
-        currentPageIndex++;
-        potionPage.Setup(recipes.AllRecipes[currentPageIndex].ResultPotionEffect);
-        UpdateButtonState();
+        if (currentViewIndex < TotalViews - 1)
+        {
+            currentViewIndex++;
+            ShowView(currentViewIndex);
+        }
     }
 
     private void CycleBackward()
     {
-        if (currentPageIndex > 0)
+        if (currentViewIndex > 0)
         {
-            currentPageIndex--;
-            potionPage.Setup(recipes.AllRecipes[currentPageIndex].ResultPotionEffect);
-            UpdateButtonState();
+            currentViewIndex--;
+            ShowView(currentViewIndex);
         }
+    }
+
+    private void NavigateToPotion(int potionIndex)
+    {
+        currentViewIndex = indexSpreadCount + potionIndex;
+        ShowView(currentViewIndex);
+    }
+
+    private void ShowView(int view)
+    {
+        bool isIndex = view < indexSpreadCount;
+        indexPagesTransform.gameObject.SetActive(isIndex);
+        potionPagesTransform.gameObject.SetActive(!isIndex);
+
+        if (isIndex)
+            indexPage.ShowSpread(view);
+        else
+            potionPage.Setup(potions[view - indexSpreadCount]);
+
+        UpdateButtonState();
     }
 
     private void UpdateButtonState()
     {
-        leftButton.gameObject.SetActive(currentPageIndex > 0);
-        rightButton.gameObject.SetActive(currentPageIndex < recipes.AllRecipes.Count - 1);
+        leftButton.gameObject.SetActive(currentViewIndex > 0);
+        rightButton.gameObject.SetActive(currentViewIndex < TotalViews - 1);
     }
 }

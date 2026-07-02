@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: none
   displayName: Slopbrew
-  icon: {fileID: 0}
-  description: 
+  icon: {fileID: 21300000, guid: ae0c223f0b28af842bb8cfbf8fd7f2c0, type: 3}
+  iconSilhouette: {fileID: 0}
+  description: "No rhyme, no rule, no proper thread,\nJust stinking dregs the cauldron
+    fed.\nIt swirls, it spits, then settles flat.\nA brew for none\u2026 and good
+    at that."
   kind: 2
   transformVoiceLine: {fileID: 8300000, guid: b70169099c39bbb42a489c1c273db6bc, type: 3}
   playLight: 0

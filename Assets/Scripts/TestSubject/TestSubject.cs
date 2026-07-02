@@ -41,6 +41,7 @@ public class TestSubject : InteractableBase
     [Header("Unity Events")]
     [Tooltip("Shared flourish played for every transformation (light flash, etc.).")]
     public UnityEvent transformationEvent;
+    public UnityEvent potionApplied;
 
     private List<int> _voiceLinePlayOrder;
     private int _currentVoiceLineIndex;
@@ -112,6 +113,7 @@ public class TestSubject : InteractableBase
         }
 
         transformationEvent?.Invoke();
+        potionApplied?.Invoke();
 
         RunPresentation(effect);
 
@@ -123,6 +125,10 @@ public class TestSubject : InteractableBase
         // Subject is unchanged; just play the slop reaction.
         isTransformed = false;
         RunPresentation(effect);
+
+        potionApplied?.Invoke();
+
+        PotionDiscovery.Instance?.DiscoverEffect(effect);
     }
 
     private void ResetSubject(PotionEffect effect)

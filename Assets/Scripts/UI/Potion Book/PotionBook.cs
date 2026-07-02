@@ -21,7 +21,7 @@ public class PotionBook : MonoBehaviour
     private Recipes recipes;
     [BoxGroup("Recipes")]
     [SerializeField]
-    private PotionEffect nonePotion;
+    private List<PotionEffect> explicitPotions;
 
     [BoxGroup("Buttons")]
     [SerializeField]
@@ -75,7 +75,11 @@ public class PotionBook : MonoBehaviour
         inputActions = new InputSystem_Actions();
 
         potions = recipes.AllRecipes.ConvertAll(recipe => recipe.ResultPotionEffect);
-        potions.Add(nonePotion);
+        explicitPotions.ForEach(potion =>
+        {
+            if (!potions.Contains(potion))
+                potions.Add(potion);
+        });
     }
 
     private void OnEnable()

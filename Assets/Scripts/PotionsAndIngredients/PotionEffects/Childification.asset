@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: child
   displayName: Milktooth Curse
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: be4b9a0674458454992c539828c33431, type: 3}
   description: 'From sacred horn and skulls once small,
 
     Mix with bone that knew

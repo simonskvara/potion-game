@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: pregnancy
   displayName: Seed of Light
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f1166a8ef097792469d8589dca1c09dc, type: 3}
   description: "From forest's grasp and creature's gaze,\nBlend roots with sight
     from hollowed face.\nA sacred horn shall seal the fate\u2026\nNew life shall
     bloom, though not from grace"

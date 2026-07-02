@@ -41,22 +41,26 @@ public class Interactor : MonoBehaviour
         // Nothing changed: keep the current target as-is (its outline is already on).
         if (ReferenceEquals(hit, currentInteractable))
         {
-            if (!IsInteractableValid(currentInteractable)) ClearCurrent();
+            if (!IsInteractableValid(currentInteractable) || !currentInteractable.IsInteractable) 
+                ClearCurrent();
+
             return;
         }
 
         // Target changed: drop the previous outline.
-        if (IsInteractableValid(currentInteractable)) currentInteractable.DisableOutline();
+        if (IsInteractableValid(currentInteractable)) 
+            currentInteractable.DisableOutline();
 
-        currentInteractable = hit;
 
-        if (hit != null)
+        if (hit != null && hit.IsInteractable)
         {
+            currentInteractable = hit;
             hit.EnableOutline();
             uiManager.UpdateInteractionDescription(hit.GetDescription());
         }
         else
         {
+            currentInteractable = null;
             uiManager.UpdateInteractionDescription("");
         }
     }
@@ -80,7 +84,9 @@ public class Interactor : MonoBehaviour
 
     private void ClearCurrent()
     {
-        if (IsInteractableValid(currentInteractable)) currentInteractable.DisableOutline();
+        if (IsInteractableValid(currentInteractable) && !currentInteractable.IsInteractable) 
+            currentInteractable.DisableOutline();
+
         uiManager.UpdateInteractionDescription("");
         currentInteractable = null;
     }

@@ -14,6 +14,7 @@ public class PotionEffect : ScriptableObject
     public string PotionEffectID => potionEffectID;
     public string DisplayName => displayName;
     public Sprite Icon => icon;
+    public Sprite IconSilhouette => iconSilhouette;
     public string Description => description;
     public PotionEffectKind Kind => kind;
     public AudioClip TransformVoiceLine => transformVoiceLine;
@@ -24,6 +25,7 @@ public class PotionEffect : ScriptableObject
     [SerializeField] private string potionEffectID;
     [SerializeField] private string displayName;
     [SerializeField] private Sprite icon;
+    [SerializeField] private Sprite iconSilhouette;
     [SerializeField, TextArea(4, 10)] private string description;
     [SerializeField] private PotionEffectKind kind = PotionEffectKind.Transform;
 

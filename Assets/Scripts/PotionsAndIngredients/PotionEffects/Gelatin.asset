@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: gelatin
   displayName: The Royal Slop
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 55938129b59df4746b718d13fee658f0, type: 3}
   description: 'A noble waste, a festering crust,
 
     Add peering eyes that squirm

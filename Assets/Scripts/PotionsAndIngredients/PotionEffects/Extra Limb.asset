@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: extra_limb
   displayName: The Fifth Grasp
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dfc7b5ff232deaf48aeb574f2d06a0c5, type: 3}
   description: "From foot long dead and heads once small,\nAdd bone that knew the
     rise and fall.\nLet twisted flesh and spirit merge\u2026\nAnd feel the urge to
     reach... and surge."

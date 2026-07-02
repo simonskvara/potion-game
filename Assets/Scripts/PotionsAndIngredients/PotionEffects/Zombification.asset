@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: zombie
   displayName: Graveborne
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b5e115027420be9489dac115e695cd77, type: 3}
   description: 'From bloodless dust and silence kept,
 
     Where shrunken thoughts

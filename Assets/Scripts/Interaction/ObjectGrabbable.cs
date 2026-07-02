@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ObjectGrabbable : InteractableBase
+public class ObjectGrabbable : MonoBehaviour
 {
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
     [SerializeField] private float lerpSpeed = 20f;
     [SerializeField] private float rotationLerpSpeed = 15f;
+
+    public UnityEvent OnGrabbed;
+    public UnityEvent OnDropped;
 
     private bool isGrabbed;
     private Vector3 targetPosition;
@@ -15,9 +19,8 @@ public class ObjectGrabbable : InteractableBase
 
     private bool canGrab = true;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         objectRigidbody = GetComponent<Rigidbody>();
         objectRigidbody.excludeLayers = LayerMask.GetMask("Player");
         objectRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
@@ -42,6 +45,8 @@ public class ObjectGrabbable : InteractableBase
         objectRigidbody.useGravity = false;
         
         isGrabbed = true;
+
+        OnGrabbed?.Invoke();
     }
 
     public void Drop()
@@ -51,6 +56,8 @@ public class ObjectGrabbable : InteractableBase
         objectRigidbody.useGravity = true;
         
         isGrabbed = false;
+
+        OnDropped?.Invoke();
     }
 
     private void FixedUpdate()

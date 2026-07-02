@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: goblin
   displayName: Lowborn Rebirth
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 262bb0a8b898aad41a1c63ebf4f5c478, type: 3}
   description: 'Beneath the throne, where filth runs deep,
 
     A nail, a foot, in

@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718fddeda0af8694bb6b8bfd9c978f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientsName: Purification Potions
+  description: Cure Potions
+  outline: {fileID: 6395777309302953320}
   ingredientsToSpawn:
   - {fileID: 3750269335209664037, guid: 8dbfb55b060b21443be34dd22b14e4b1, type: 3}
   spawnPoint: {fileID: 6793176978132816397}
-  outline: {fileID: 6395777309302953320}
   waitBetweenSpawn: 1
 --- !u!65 &4732293249761163124
 BoxCollider:

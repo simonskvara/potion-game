@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
   potionEffectID: combustion
   displayName: Ashes Awaken
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 15acb2874632bae449ab160cb30b7879, type: 3}
   description: 'From cursed bone and vermin dead,
 
     Stoke the pyre where vampires

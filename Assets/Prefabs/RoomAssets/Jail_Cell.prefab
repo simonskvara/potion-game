@@ -2493,8 +2493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7266b49fc3e7d6b45abee86600e93828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceDescription: 0
   description: Your Priest
   outline: {fileID: 0}
+  isInteractable: 1
   baseModel: {fileID: 5861126608250958180}
   effectModels:
   - label: Goblinization
@@ -2623,6 +2625,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  potionApplied:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 3212745175270485938}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot

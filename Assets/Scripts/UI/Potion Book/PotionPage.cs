@@ -28,6 +28,13 @@ public class PotionPage : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI ingredient3Text;
 
+    [BoxGroup("Explicit Potions")]
+    [SerializeField]
+    private PotionEffect nonePotion;
+    [BoxGroup("Explicit Potions")]
+    [SerializeField]
+    private PotionEffect resetPotion;
+
     private PotionEffect currentPotionDisplayed;
 
     public void Setup(PotionEffect potion)
@@ -36,21 +43,31 @@ public class PotionPage : MonoBehaviour
         potionTitleText.text = potion.DisplayName;
         potionRiddleText.text = potion.Description;
 
-        if (potion.Icon != null)
-            potionImage.sprite = potion.Icon;
-
         if (PotionDiscovery.Instance.IsEffectDiscovered(potion))
         {
+            if (potion.PotionEffectID == nonePotion.PotionEffectID)
+            {
+                ingredient1Text.text = "Nothing and Everything";
+                ingredient2Text.text = "";
+                ingredient3Text.text = "";
+
+                return;
+            }
+
             string[] ingredients = GetIngredients(potion);
             ingredient1Text.text = ingredients[0];
             ingredient2Text.text = ingredients[1];
             ingredient3Text.text = ingredients[2];
+
+            SetPotionImage(potion.Icon);
         }
         else
         {
             ingredient1Text.text = "???";
             ingredient2Text.text = "???";
             ingredient3Text.text = "???";
+
+            SetPotionImage(potion.IconSilhouette);
         }
     }
 
@@ -59,6 +76,19 @@ public class PotionPage : MonoBehaviour
         if (currentPotionDisplayed != null)
         {
             Setup(currentPotionDisplayed);
+        }
+    }
+
+    private void SetPotionImage(Sprite icon)
+    {
+        if (icon != null)
+        {
+            potionImage.sprite = icon;
+            potionImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            potionImage.gameObject.SetActive(false);
         }
     }
 

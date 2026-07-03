@@ -49,7 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdcc22e89a23054bb1f117da6e8423e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: 11
+  forceDescription: 0
+  description: 
+  outline: {fileID: 101668225738668410}
+  spriteOutline: {fileID: 0}
+  isInteractable: 1
   potionEffect: {fileID: 11400000, guid: 62ee41065d9755c45b5a1cc99f2b3d0a, type: 2}
 --- !u!114 &5576853782169465802
 MonoBehaviour:
@@ -63,10 +67,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04938ab52ebd8ec4d8a748304474d52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  outline: {fileID: 101668225738668410}
   lerpSpeed: 20
   rotationLerpSpeed: 15
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &2916421850399291115
 Rigidbody:
   m_ObjectHideFlags: 0

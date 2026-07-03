@@ -1,7 +1,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-public class Potion : MonoBehaviour
+public class Potion : InteractableBase
 {
     [BoxGroup("Potion Info")]
     [SerializeField]

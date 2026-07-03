@@ -46,10 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718fddeda0af8694bb6b8bfd9c978f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientsName: Template
+  forceDescription: 0
+  description: 
+  outline: {fileID: 0}
+  spriteOutline: {fileID: 5708283340817086869}
+  isInteractable: 1
   ingredientsToSpawn: []
   spawnPoint: {fileID: 7852768155019467489}
-  outline: {fileID: 4006874466282023563}
   waitBetweenSpawn: 1
 --- !u!65 &8341262883862446103
 BoxCollider:
@@ -82,9 +85,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2533409172102546290}
   - component: {fileID: 4936105726050438779}
-  - component: {fileID: 4006874466282023563}
+  - component: {fileID: 5708283340817086869}
   m_Layer: 0
-  m_Name: container
+  m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,6 +111,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4936105726050438779
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,6 +130,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -147,9 +153,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -159,26 +167,22 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4006874466282023563
+--- !u!114 &5708283340817086869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2970148492480769407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Script: {fileID: 11500000, guid: bc04b502a113b5f4bae4c695c64d5829, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 5
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutline
+  outlineMaterial: {fileID: 2100000, guid: 2e7413da769017947b13ef800a193c11, type: 2}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineThickness: 1
 --- !u!1 &5080659452478398375
 GameObject:
   m_ObjectHideFlags: 0

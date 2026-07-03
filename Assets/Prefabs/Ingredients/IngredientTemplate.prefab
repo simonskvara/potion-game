@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1339930755784029388}
   - component: {fileID: 2823972166313560335}
-  - component: {fileID: 3781347782005014483}
+  - component: {fileID: 9072237009571516053}
   m_Layer: 6
-  m_Name: ingredient
+  m_Name: Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,24 +92,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!114 &3781347782005014483
+--- !u!114 &9072237009571516053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6333275113043019992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Script: {fileID: 11500000, guid: bc04b502a113b5f4bae4c695c64d5829, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutline
+  outlineMaterial: {fileID: 2100000, guid: 2e7413da769017947b13ef800a193c11, type: 2}
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
+  outlineThickness: 2
+  visibility: 1
 --- !u!1 &8447257703748313178
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +206,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 20
   rotationLerpSpeed: 15
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4852317244440594075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa85a1a3e240f1248aa1c7d024ba5ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyDescription: 0
+  forceDescription: 0
   description: 
-  outline: {fileID: 3781347782005014483}
+  outline: {fileID: 0}
+  spriteOutline: {fileID: 9072237009571516053}
+  isInteractable: 1
   ingredient: {fileID: 0}
   grabbable: {fileID: 6001046970919214430}

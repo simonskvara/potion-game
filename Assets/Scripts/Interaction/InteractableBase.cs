@@ -15,8 +15,11 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
     [SerializeField]
     protected string description;
     [BoxGroup("Interaction")]
-    [SerializeField] 
+    [SerializeField]
     protected Outline outline;
+    [BoxGroup("Interaction")]
+    [SerializeField]
+    protected SpriteOutline spriteOutline;
     [BoxGroup("Interaction")]
     [SerializeField]
     private bool isInteractable = true;
@@ -39,11 +42,13 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
     public void EnableOutline()
     {
         if (outline != null) outline.enabled = true;
+        if (spriteOutline != null) spriteOutline.enabled = true;
     }
 
     public void DisableOutline()
     {
         if (outline != null) outline.enabled = false;
+        if (spriteOutline != null) spriteOutline.enabled = false;
     }
 
     public void SetIsInteractable(bool isInteractable)

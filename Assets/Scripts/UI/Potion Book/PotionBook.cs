@@ -32,6 +32,9 @@ public class PotionBook : MonoBehaviour
     [BoxGroup("Buttons")]
     [SerializeField]
     private Button rightButton;
+    [BoxGroup("Buttons")]
+    [SerializeField]
+    private Button indexButton;
 
     [BoxGroup("References")]
     [SerializeField]
@@ -142,6 +145,12 @@ public class PotionBook : MonoBehaviour
             CloseBook();
         }
     }
+
+    public void GoToIndex()
+    {
+        currentViewIndex = 0;
+        ShowView(currentViewIndex);
+    }
     
 
     private void CycleForward()
@@ -175,9 +184,15 @@ public class PotionBook : MonoBehaviour
         potionPagesTransform.gameObject.SetActive(!isIndex);
 
         if (isIndex)
+        {
             indexPage.ShowSpread(view);
+            indexButton.gameObject.SetActive(false);
+        }
         else
+        {
             potionPage.Setup(potions[view - indexSpreadCount]);
+            indexButton.gameObject.SetActive(true);
+        }
 
         UpdateButtonState();
     }

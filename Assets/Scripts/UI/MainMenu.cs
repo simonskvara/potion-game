@@ -19,6 +19,11 @@ public class MainMenu : MonoBehaviour
         continueButton.interactable = SaveManager.HasSaveFile();
     }
 
+    private void SetupNewGameButton()
+    {
+
+    }
+
     public void LoadScene(string sceneName)
     {
         Time.timeScale = 1f;

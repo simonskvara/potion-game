@@ -92,6 +92,11 @@ public static class SaveManager
         OnSaveDeleted?.Invoke();
     }
 
+    public static bool HasSaveFile()
+    {
+        return File.Exists(FilePath);
+    }
+
     private static void EnsureLoaded()
     {
         if (data == null)

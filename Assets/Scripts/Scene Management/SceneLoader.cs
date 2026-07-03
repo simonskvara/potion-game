@@ -10,4 +10,9 @@ public static class SceneLoader
         TargetScene = sceneName;
         SceneManager.LoadScene("LoadingScreen");
     }
+
+    public static void Quit()
+    {
+        Application.Quit();
+    }
 }

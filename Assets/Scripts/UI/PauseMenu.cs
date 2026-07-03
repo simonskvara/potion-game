@@ -103,10 +103,21 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void LoadScene(string sceneName)
+    {
+        Resume();
+        SceneLoader.LoadScene(sceneName);
+    }
+
     public void RestartScene()
     {
         Resume();
         SceneLoader.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        SceneLoader.Quit();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
